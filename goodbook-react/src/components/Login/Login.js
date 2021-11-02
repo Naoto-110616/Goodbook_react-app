@@ -29,9 +29,9 @@ const Login = () => {
 								placeholder: "Password",
 							}}
 						/>
-						<Button className={"login-button"}>Login</Button>
-						<a>Forgot Password?</a>
-						<Button className={"singup-button"}>Create New Account</Button>
+						<Button>Log in</Button>
+						<a href="">Forgot Password?</a>
+						<Button>Create New Account</Button>
 					</div>
 				</div>
 			</section>

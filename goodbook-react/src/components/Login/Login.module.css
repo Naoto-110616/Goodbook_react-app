@@ -1,16 +1,27 @@
 .login {
 	background-color: #f0f2f5;
-	padding: 15rem 0;
+	padding: 10rem 0;
 }
 .login-wrap {
 	display: flex;
 	justify-content: center;
-	align-self: center;
+	align-items: center;
 }
 .login-left {
 	width: 500px;
 	font-size: 1.5rem;
 	text-align: left;
+}
+.login-left h1 {
+	font-size: 3.5rem;
+	margin: 0;
+}
+.login-left p {
+	width: 430px;
+	font-weight: 500;
+}
+.login-input {
+	width: 100%;
 }
 h1 {
 	color: #1877f2;
@@ -19,10 +30,16 @@ h1 {
 .login-right {
 	background-color: #fff;
 	padding: 1rem;
+	border-radius: 5px;
+	width: 400px;
+	box-sizing: border-box;
+	box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
 }
-.login-button {
-	background-color: #1877f2;
+.login-right a {
+	text-decoration: none;
+	color: #1877f2;
+	font-weight: 600;
 }
-.singup-button {
-	background-color: aqua;
+.login-right a:hover {
+	text-decoration: underline;
 }
