@@ -30,7 +30,9 @@ const Login = () => {
 							}}
 						/>
 						<Button>Log in</Button>
-						<a href="">Forgot Password?</a>
+						<div className={classes.remenber}>
+							<a href="/">Forgot Password?</a>
+						</div>
 						<Button>Create New Account</Button>
 					</div>
 				</div>
