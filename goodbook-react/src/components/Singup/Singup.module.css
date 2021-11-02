@@ -1,0 +1,13 @@
+.singup {
+	width: 430px;
+}
+
+.name {
+	display: flex;
+}
+.birthday {
+	display: flex;
+}
+.gender {
+	display: flex;
+}

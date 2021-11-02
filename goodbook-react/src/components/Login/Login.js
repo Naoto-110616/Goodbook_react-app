@@ -29,7 +29,7 @@ const Login = () => {
 								placeholder: "Password",
 							}}
 						/>
-						<Button>Log in</Button>
+						<Button>Log In</Button>
 						<div className={classes.remenber}>
 							<a href="/">Forgot Password?</a>
 						</div>
