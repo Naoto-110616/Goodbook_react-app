@@ -1,7 +1,15 @@
 .singup {
-	width: 430px;
 }
-
+.singup-text {
+	display: flex;
+	justify-content: space-between;
+}
+.singup-text h2 {
+	margin: 0;
+}
+.singup-text i {
+	font-size: 1.5rem;
+}
 .name {
 	display: flex;
 }

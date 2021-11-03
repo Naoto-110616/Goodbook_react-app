@@ -5,8 +5,8 @@ import Singup from "./components/Singup/Singup";
 function App() {
 	return (
 		<div className="App">
-			<Login />
 			<Singup />
+			<Login />
 		</div>
 	);
 }
