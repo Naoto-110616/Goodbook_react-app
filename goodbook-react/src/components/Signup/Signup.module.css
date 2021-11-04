@@ -1,15 +1,15 @@
-.singup {
+.signup {
 }
-.singup-text {
+.signup-text {
 	display: flex;
 	justify-content: space-between;
 	border-bottom: 1px solid #aaa;
 }
-.singup-text h2 {
+.signup-text h2 {
 	margin: 0;
 	font-size: 2rem;
 }
-.singup-text i {
+.signup-text i {
 	font-size: 1.5rem;
 }
 .name {
@@ -17,7 +17,9 @@
 }
 .birthday {
 	display: flex;
+	justify-content: space-between;
 }
 .gender {
 	display: flex;
+	justify-content: space-between;
 }

@@ -2,7 +2,7 @@ import Button from "../UI/Button";
 import Input from "../UI/Input";
 import Modal from "../UI/Modal/Modal";
 import Select from "../UI/Select/Select";
-import classes from "./Singup.module.css";
+import classes from "./Signup.module.css";
 const DAY = [
 	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
 	23, 24, 25, 26, 27, 28, 29, 30, 31,
@@ -70,7 +70,7 @@ const YEAR = [
 	2017, 2018, 2019, 2020, 2021,
 ];
 
-const Singup = () => {
+const Signup = () => {
 	const month = MONTH.map((data) => (
 		<option value={data.value}>{data.month}</option>
 	));
@@ -78,30 +78,44 @@ const Singup = () => {
 	const year = YEAR.map((data) => <option value={data}>{data}</option>);
 	return (
 		<Modal>
-			<form className={classes.singup}>
+			<form className={classes.signup}>
 				<div>
-					<div className={classes["singup-text"]}>
+					<div className={classes["signup-text"]}>
 						<div>
 							<h2>Sing Up</h2>
 							<p>It’s quick and easy.</p>
 						</div>
-						<div className={classes["singup-x"]}>
+						<div className={classes["signup-x"]}>
 							<i class="far fa-times-circle"></i>
 						</div>
 					</div>
 					<div className={classes.name}>
-						<Input input={{ placeholder: "First name" }} />
-						<Input input={{ placeholder: "Last name" }} />
+						<Input signup="ture" input={{ placeholder: "First name" }} />
+						<Input signup="ture" input={{ placeholder: "Last name" }} />
 					</div>
-					<Input input={{ placeholder: "Mobile number or email" }} />
-					<Input input={{ placeholder: "New password" }} />
-					<div className={classes.birthday}></div>
-					<Select select={{ name: "month", title: "month" }}>{month}</Select>
-					<Select select={{ name: "day", title: "day" }}>{day}</Select>
-					<Select select={{ name: "year", title: "year" }}>{year}</Select>
+					<Input
+						signup="ture"
+						input={{ placeholder: "Mobile number or email" }}
+					/>
+					<Input signup="ture" input={{ placeholder: "New password" }} />
+					<p>Birthday</p>
+					<div className={classes.birthday}>
+						<Select signup="true" select={{ name: "month", title: "month" }}>
+							{month}
+						</Select>
+						<Select signup="true" select={{ name: "day", title: "day" }}>
+							{day}
+						</Select>
+						<Select signup="true" select={{ name: "year", title: "year" }}>
+							{year}
+						</Select>
+					</div>
+					<p>Gender</p>
 					<div className={classes.gender}>
 						<Input
 							label="Female"
+							signup="true"
+							radio="true"
 							input={{
 								type: "radio",
 								name: "gender",
@@ -110,6 +124,8 @@ const Singup = () => {
 						/>
 						<Input
 							label="Male"
+							signup="true"
+							radio="true"
 							input={{
 								type: "radio",
 								name: "gender",
@@ -118,6 +134,8 @@ const Singup = () => {
 						/>
 						<Input
 							label="Custom"
+							signup="true"
+							radio="true"
 							input={{
 								type: "radio",
 								name: "gender",
@@ -131,4 +149,4 @@ const Singup = () => {
 		</Modal>
 	);
 };
-export default Singup;
+export default Signup;
