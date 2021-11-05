@@ -70,7 +70,7 @@ const YEAR = [
 	2017, 2018, 2019, 2020, 2021,
 ];
 
-const Signup = () => {
+const Signup = (props) => {
 	const month = MONTH.map((data) => (
 		<option value={data.value}>{data.month}</option>
 	));
@@ -86,7 +86,7 @@ const Signup = () => {
 							<p>It’s quick and easy.</p>
 						</div>
 						<div className={classes["signup-x"]}>
-							<i class="far fa-times-circle"></i>
+							<i onClick={props.onClose} class="far fa-times-circle"></i>
 						</div>
 					</div>
 					<Input signup="ture" input={{ placeholder: "First name" }} />

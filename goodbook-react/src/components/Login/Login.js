@@ -2,7 +2,7 @@ import classes from "./Login.module.css";
 import Input from "../UI/Input";
 import Button from "../UI/Button";
 
-const Login = () => {
+const Login = (props) => {
 	return (
 		<>
 			<section className={classes.login}>
@@ -35,7 +35,7 @@ const Login = () => {
 						<div className={classes.remenber}>
 							<a href="/">Forgot Password?</a>
 						</div>
-						<Button>Create New Account</Button>
+						<Button onClick={props.onShowSignup}>Create New Account</Button>
 					</div>
 				</div>
 			</section>
