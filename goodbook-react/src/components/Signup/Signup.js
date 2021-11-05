@@ -89,16 +89,14 @@ const Signup = () => {
 							<i class="far fa-times-circle"></i>
 						</div>
 					</div>
-					<div className={classes.name}>
-						<Input signup="ture" input={{ placeholder: "First name" }} />
-						<Input signup="ture" input={{ placeholder: "Last name" }} />
-					</div>
+					<Input signup="ture" input={{ placeholder: "First name" }} />
+					<Input signup="ture" input={{ placeholder: "Last name" }} />
 					<Input
 						signup="ture"
 						input={{ placeholder: "Mobile number or email" }}
 					/>
 					<Input signup="ture" input={{ placeholder: "New password" }} />
-					<p>Birthday</p>
+					<p className={classes["category-name"]}>Birthday</p>
 					<div className={classes.birthday}>
 						<Select signup="true" select={{ name: "month", title: "month" }}>
 							{month}
@@ -110,11 +108,10 @@ const Signup = () => {
 							{year}
 						</Select>
 					</div>
-					<p>Gender</p>
+					<p className={classes["category-name"]}>Gender</p>
 					<div className={classes.gender}>
 						<Input
 							label="Female"
-							signup="true"
 							radio="true"
 							input={{
 								type: "radio",
@@ -124,7 +121,6 @@ const Signup = () => {
 						/>
 						<Input
 							label="Male"
-							signup="true"
 							radio="true"
 							input={{
 								type: "radio",
@@ -134,7 +130,6 @@ const Signup = () => {
 						/>
 						<Input
 							label="Custom"
-							signup="true"
 							radio="true"
 							input={{
 								type: "radio",

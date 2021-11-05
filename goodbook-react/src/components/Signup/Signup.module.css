@@ -12,9 +12,6 @@
 .signup-text i {
 	font-size: 1.5rem;
 }
-.name {
-	display: flex;
-}
 .birthday {
 	display: flex;
 	justify-content: space-between;
@@ -22,4 +19,8 @@
 .gender {
 	display: flex;
 	justify-content: space-between;
+}
+.category-name {
+	margin: 1rem 0 0 0;
+	font-size: 0.7rem;
 }
