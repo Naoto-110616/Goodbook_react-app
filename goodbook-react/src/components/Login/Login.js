@@ -35,7 +35,7 @@ const Login = (props) => {
             <div className={classes.remenber}>
               <a href="/">Forgot Password?</a>
             </div>
-            <Button signup={"true"} onClick={props.onShowSignup}>
+            <Button signup={true} onClick={props.onShowSignup}>
               Create New Account
             </Button>
           </div>
