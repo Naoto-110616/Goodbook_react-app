@@ -13,7 +13,7 @@ const Login = (props) => {
           </div>
           <div className={classes["login-right"]}>
             <Input
-              login="true"
+              login={true}
               className={"login-input"}
               input={{
                 id: "email",
@@ -23,7 +23,7 @@ const Login = (props) => {
               }}
             />
             <Input
-              login="true"
+              login={true}
               className={"login-input"}
               input={{
                 id: "pass",
