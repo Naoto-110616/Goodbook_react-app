@@ -111,30 +111,30 @@ const Signup = (props) => {
 					<p className={classes["category-name"]}>Gender</p>
 					<div className={classes.gender}>
 						<Input
-							id="radio1"
 							label="Female"
 							radio={true}
 							input={{
+								id: "radio1",
 								type: "radio",
 								name: "gender",
 								value: "Female",
 							}}
 						/>
 						<Input
-							id="radio2"
 							label="Male"
 							radio={true}
 							input={{
+								id: "radio2",
 								type: "radio",
 								name: "gender",
 								value: "Male",
 							}}
 						/>
 						<Input
-							id="radio3"
 							label="Custom"
 							radio={true}
 							input={{
+								id: "radio3",
 								type: "radio",
 								name: "gender",
 								value: "Custom",
