@@ -1,5 +1,5 @@
-import Button from "../UI/Button";
-import Input from "../UI/Input";
+import Button from "../UI/Button/Button";
+import Input from "../UI/Input/Input";
 import Modal from "../UI/Modal/Modal";
 import Select from "../UI/Select/Select";
 import classes from "./Signup.module.css";
