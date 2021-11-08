@@ -112,7 +112,7 @@ const Signup = (props) => {
           <div className={classes.gender}>
             <Input
               label="Female"
-              radio="true"
+              radio={true}
               input={{
                 type: "radio",
                 name: "gender",
@@ -121,7 +121,7 @@ const Signup = (props) => {
             />
             <Input
               label="Male"
-              radio="true"
+              radio={true}
               input={{
                 type: "radio",
                 name: "gender",
@@ -130,7 +130,7 @@ const Signup = (props) => {
             />
             <Input
               label="Custom"
-              radio="true"
+              radio={true}
               input={{
                 type: "radio",
                 name: "gender",
