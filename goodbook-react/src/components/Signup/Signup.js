@@ -77,6 +77,7 @@ const Signup = (props) => {
               }}
             />
           </div>
+          <CustomeGender />
           <Button>Sing Up</Button>
         </div>
       </form>
