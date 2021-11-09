@@ -12,6 +12,7 @@ const Signup = (props) => {
   ));
   const day = DAY.map((data) => <option value={data}>{data}</option>);
   const year = YEAR.map((data) => <option value={data}>{data}</option>);
+
   return (
     <Modal>
       <form className={classes.signup}>
