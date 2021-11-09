@@ -1,6 +1,8 @@
 .select {
+	width: 100%;
+	border-radius: 5px;
+	padding: 10px;
 }
 .signup {
 	width: 30%;
-	padding: 10px;
 }
