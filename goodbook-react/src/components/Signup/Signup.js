@@ -24,7 +24,7 @@ const Signup = (props) => {
 	};
 
 	return (
-		<Modal>
+		<Modal onClose={props.onClose}>
 			<form className={classes.signup}>
 				<div>
 					<div className={classes["signup-text"]}>
