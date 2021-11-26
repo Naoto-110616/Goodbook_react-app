@@ -5,14 +5,12 @@ import Modal from "../UI/Modal/Modal";
 import Select from "../UI/Select/Select";
 import classes from "./Signup.module.css";
 import CustomeGender from "./CustomGender/CustomeGender";
-import { MONTH, DAY, YEAR } from "../../util/Consts";
 
 const Signup = (props) => {
-	const month = MONTH.map((data) => (
-		<option value={data.value}>{data.month}</option>
-	));
-	const day = DAY.map((data) => <option value={data}>{data}</option>);
-	const year = YEAR.map((data) => <option value={data}>{data}</option>);
+	const [age, setAge] = useState(''); // birthYaer, Month, Dayをまとめたもの
+	const [birthYear, setBirthYear] = useState(new Date().getFullYear());
+	const [birthMonth, setBirthMonth] = useState(new Date().getMonth() + 1);
+	const [birthDay, setBirthDay] = useState(new Date().getDay());
 
 	const [isOpenGender, setIsOpenGender] = useState(false);
 
@@ -22,6 +20,28 @@ const Signup = (props) => {
 	const customeGenderCloseHandler = () => {
 		setIsOpenGender(false);
 	};
+	const setYear = () => {
+		let list = [];
+		for (let i = 1900; i <= new Date().getFullYear(); i++) {
+			list.push(<option key={`year_${i}`} value={i}>{i}</option>);
+		}
+		return list;
+	}
+	const setMonth = () => {
+		let list = [];
+		for (let i = 1; i <= 12; i++) {
+			list.push(<option key={`month_${i}`} value={i}>{i}</option>);
+		}
+		return list;
+	}
+	const setDay = () => {
+		let list = [];
+		const lastday = new Date(Number(birthYear), Number(birthMonth), 0).getDate();
+		for (let i = 1; i <= lastday; i++) {
+			list.push(<option key={`day_${i}`} value={i}>{i}</option>);
+		}
+		return list;
+	}
 
 	return (
 		<Modal onClose={props.onClose}>
@@ -46,13 +66,13 @@ const Signup = (props) => {
 					<p className={classes["category-name"]}>Birthday</p>
 					<div className={classes.birthday}>
 						<Select signup={true} select={{ name: "month", title: "month" }}>
-							{month}
+							{setMonth()}
 						</Select>
 						<Select signup={true} select={{ name: "day", title: "day" }}>
-							{day}
+							{setDay()}
 						</Select>
 						<Select signup={true} select={{ name: "year", title: "year" }}>
-							{year}
+							{setYear()}
 						</Select>
 					</div>
 					<p className={classes["category-name"]}>Gender</p>
