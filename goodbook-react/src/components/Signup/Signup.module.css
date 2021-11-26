@@ -5,6 +5,9 @@
 	justify-content: space-between;
 	border-bottom: 1px solid #aaa;
 }
+.signup-x i{
+	cursor: pointer;
+}
 .signup-text h2 {
 	margin: 0;
 	font-size: 2rem;
@@ -23,4 +26,7 @@
 .category-name {
 	margin: 1rem 0 0 0;
 	font-size: 0.7rem;
+}
+.btn-wrap {
+	text-align: center;
 }
