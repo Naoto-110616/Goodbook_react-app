@@ -6,9 +6,8 @@ const Input = (props) => {
 			{props.label && <label htmlFor={props.input.id}>{props.label}</label>}
 			<input
 				onClick={props.onClick}
-				className={`${props.login && classes.login} ${
-					props.signup && classes.signup
-				}`}
+				className={`${props.login && classes.login} ${props.signup && classes.signup
+					}`}
 				{...props.input}
 			/>
 		</div>

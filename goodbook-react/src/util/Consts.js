@@ -1,4 +1,4 @@
-export const CUSTOME_GENDER = [
+export const CUSTOM_GENDER = [
   {
     value: 1,
     gender: "Select your pronoun",

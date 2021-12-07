@@ -32,7 +32,7 @@ const Login = (props) => {
               }}
             />
             <Button>Log In</Button>
-            <div className={classes.remenber}>
+            <div className={classes.remember}>
               <a href="/">Forgot Password?</a>
             </div>
             <Button signup={true} onClick={props.onShowSignup}>

@@ -4,20 +4,20 @@ import Input from "../UI/Input/Input";
 import Modal from "../UI/Modal/Modal";
 import Select from "../UI/Select/Select";
 import classes from "./Signup.module.css";
-import CustomeGender from "./CustomGender/CustomeGender";
+import CustomGender from "./CustomGender/CustomGender";
 
 const Signup = (props) => {
-	const [age, setAge] = useState(''); // birthYaer, Month, Dayをまとめたもの
+	const [age, setAge] = useState(''); // birthYear, Month, Dayをまとめたもの
 	const [birthYear, setBirthYear] = useState(new Date().getFullYear());
 	const [birthMonth, setBirthMonth] = useState(new Date().getMonth() + 1);
 	const [birthDay, setBirthDay] = useState(new Date().getDay());
 
 	const [isOpenGender, setIsOpenGender] = useState(false);
 
-	const customeGenderOpenHandler = () => {
+	const customGenderOpenHandler = () => {
 		setIsOpenGender(true);
 	};
-	const customeGenderCloseHandler = () => {
+	const customGenderCloseHandler = () => {
 		setIsOpenGender(false);
 	};
 	const setYear = () => {
@@ -36,8 +36,8 @@ const Signup = (props) => {
 	}
 	const setDay = () => {
 		let list = [];
-		const lastday = new Date(Number(birthYear), Number(birthMonth), 0).getDate();
-		for (let i = 1; i <= lastday; i++) {
+		const lastDay = new Date(Number(birthYear), Number(birthMonth), 0).getDate();
+		for (let i = 1; i <= lastDay; i++) {
 			list.push(<option key={`day_${i}`} value={i}>{i}</option>);
 		}
 		return list;
@@ -78,7 +78,7 @@ const Signup = (props) => {
 					<p className={classes["category-name"]}>Gender</p>
 					<div className={classes.gender}>
 						<Input
-							onClick={customeGenderCloseHandler}
+							onClick={customGenderCloseHandler}
 							label="Female"
 							radio={true}
 							input={{
@@ -89,7 +89,7 @@ const Signup = (props) => {
 							}}
 						/>
 						<Input
-							onClick={customeGenderCloseHandler}
+							onClick={customGenderCloseHandler}
 							label="Male"
 							radio={true}
 							input={{
@@ -100,7 +100,7 @@ const Signup = (props) => {
 							}}
 						/>
 						<Input
-							onClick={customeGenderOpenHandler}
+							onClick={customGenderOpenHandler}
 							label="Custom"
 							radio={true}
 							input={{
@@ -111,7 +111,7 @@ const Signup = (props) => {
 							}}
 						/>
 					</div>
-					{isOpenGender && <CustomeGender />}
+					{isOpenGender && <CustomGender />}
 					<div className={classes["btn-wrap"]}>
 						<Button signup={true}>Sing Up</Button>
 					</div>
