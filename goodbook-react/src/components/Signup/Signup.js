@@ -7,7 +7,7 @@ import classes from "./Signup.module.css";
 import CustomGender from "./CustomGender/CustomGender";
 
 const Signup = (props) => {
-	const [age, setAge] = useState(''); // birthYear, Month, Dayをまとめたもの
+	const [age, setAge] = useState(""); // birthYear, Month, Dayをまとめたもの
 	const [birthYear, setBirthYear] = useState(new Date().getFullYear());
 	const [birthMonth, setBirthMonth] = useState(new Date().getMonth() + 1);
 	const [birthDay, setBirthDay] = useState(new Date().getDay());
@@ -23,25 +23,41 @@ const Signup = (props) => {
 	const setYear = () => {
 		let list = [];
 		for (let i = 1900; i <= new Date().getFullYear(); i++) {
-			list.push(<option key={`year_${i}`} value={i}>{i}</option>);
+			list.push(
+				<option key={`year_${i}`} value={i}>
+					{i}
+				</option>
+			);
 		}
 		return list;
-	}
+	};
 	const setMonth = () => {
 		let list = [];
 		for (let i = 1; i <= 12; i++) {
-			list.push(<option key={`month_${i}`} value={i}>{i}</option>);
+			list.push(
+				<option key={`month_${i}`} value={i}>
+					{i}
+				</option>
+			);
 		}
 		return list;
-	}
+	};
 	const setDay = () => {
 		let list = [];
-		const lastDay = new Date(Number(birthYear), Number(birthMonth), 0).getDate();
+		const lastDay = new Date(
+			Number(birthYear),
+			Number(birthMonth),
+			0
+		).getDate();
 		for (let i = 1; i <= lastDay; i++) {
-			list.push(<option key={`day_${i}`} value={i}>{i}</option>);
+			list.push(
+				<option key={`day_${i}`} value={i}>
+					{i}
+				</option>
+			);
 		}
 		return list;
-	}
+	};
 
 	return (
 		<Modal onClose={props.onClose}>
@@ -53,7 +69,7 @@ const Signup = (props) => {
 							<p>It’s quick and easy.</p>
 						</div>
 						<div className={classes["signup-x"]}>
-							<i onClick={props.onClose} class="far fa-times-circle"></i>
+							<i onClick={props.onClose} className="far fa-times-circle"></i>
 						</div>
 					</div>
 					<Input signup={true} input={{ placeholder: "First name" }} />
