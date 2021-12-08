@@ -5,7 +5,9 @@ import { CUSTOM_GENDER } from "../../../util/Consts";
 
 const CustomGender = () => {
 	const custom_gender = CUSTOM_GENDER.map((data) => (
-		<option value={data.value}>{data.gender}</option>
+		<option key={data.value} value={data.value}>
+			{data.gender}
+		</option>
 	));
 	return (
 		<>
