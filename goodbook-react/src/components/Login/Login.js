@@ -1,6 +1,7 @@
 import classes from "./Login.module.css";
 import Input from "../UI/Input/Input";
 import Button from "../UI/Button/Button";
+import Form from "../UI/Form/Form"
 
 const Login = (props) => {
 	return (
@@ -12,26 +13,28 @@ const Login = (props) => {
 						<p>Connect with friends and the world around you on GoodBook.</p>
 					</div>
 					<div className={classes["login-right"]}>
-						<Input
-							login={true}
-							className={"login-input"}
-							input={{
-								id: "email",
-								type: "text",
-								autoFocus: "1",
-								placeholder: "Email or Phone Number",
-							}}
-						/>
-						<Input
-							login={true}
-							className={"login-input"}
-							input={{
-								id: "pass",
-								type: "password",
-								placeholder: "Password",
-							}}
-						/>
-						<Button>Log In</Button>
+						<Form type="submit">
+							<Input
+								login={true}
+								className={"login-input"}
+								input={{
+									id: "email",
+									type: "text",
+									autoFocus: "1",
+									placeholder: "Email or Phone Number",
+								}}
+							/>
+							<Input
+								login={true}
+								className={"login-input"}
+								input={{
+									id: "pass",
+									type: "password",
+									placeholder: "Password",
+								}}
+							/>
+							<Button>Log In</Button>
+						</Form>
 						<div className={classes.remember}>
 							<a href="/">Forgot Password?</a>
 						</div>

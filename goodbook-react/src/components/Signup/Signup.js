@@ -5,6 +5,7 @@ import Modal from "../UI/Modal/Modal";
 import Select from "../UI/Select/Select";
 import classes from "./Signup.module.css";
 import CustomGender from "./CustomGender/CustomGender";
+import Form from "../UI/Form/Form";
 
 const Signup = (props) => {
 	const [age, setAge] = useState(""); // birthYear, Month, Dayをまとめたもの
@@ -61,7 +62,7 @@ const Signup = (props) => {
 
 	return (
 		<Modal onClose={props.onClose}>
-			<form className={classes.signup}>
+			<Form className={classes.signup} type="submit">
 				<div>
 					<div className={classes["signup-text"]}>
 						<div>
@@ -132,7 +133,7 @@ const Signup = (props) => {
 						<Button signup={true}>Sing Up</Button>
 					</div>
 				</div>
-			</form>
+			</Form>
 		</Modal>
 	);
 };
