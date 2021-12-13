@@ -1,32 +1,32 @@
 .input {
-	margin: 1rem 0;
+  margin: 1rem 0;
 }
 .input input:focus-visible {
-	outline: 1px solid #1877f2;
+  outline: 1px solid #1877f2;
 }
 .input input {
-	background-color: #e8f1fe;
-	box-sizing: border-box;
-	border: none;
-	border-radius: 5px;
+  background-color: #e8f1fe;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
 }
 .login {
-	font-size: 1.1rem;
-	width: 100%;
-	padding: 1rem;
+  font-size: 1.1rem;
+  width: 100%;
+  padding: 1rem;
 }
 .signup {
-	width: 100%;
-	padding: 10px;
-	justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  justify-content: space-between;
 }
 .radio {
-	display: flex;
-	width: 30%;
-	border: 1px solid #dbdbdb;
-	justify-content: space-between;
-	padding: 10px;
-	border-radius: 5px;
-	box-sizing: border-box;
-	margin: 0;
+  display: flex;
+  width: 30%;
+  border: 1px solid #dbdbdb;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin: 0;
 }

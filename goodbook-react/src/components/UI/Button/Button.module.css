@@ -23,3 +23,11 @@
   background-color: #1c5411;
   transition: 0.5s;
 }
+:disabled,
+:disabled:hover,
+:disabled:active {
+  background-color: #ccc;
+  color: #292929;
+  border-color: #ccc;
+  cursor: not-allowed;
+}

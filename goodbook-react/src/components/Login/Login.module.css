@@ -23,6 +23,7 @@
 .login-input {
   width: 100%;
 }
+
 h1 {
   color: #1877f2;
   font-size: 3rem;
@@ -48,4 +49,7 @@ h1 {
 }
 .login-right a:hover {
   text-decoration: underline;
+}
+.error-text {
+  color: #b40e0e;
 }

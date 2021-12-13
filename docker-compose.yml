@@ -9,6 +9,6 @@ services:
       - CHOKIDAR_USEPOLLING=true
     volumes:
       - ./:/usr/src/app
-    command: sh -c "cd goodbook-react && npm start"
+    command: sh -c "cd goodbook-react && npm install && npm start"
     ports:
       - "3001:3000"
