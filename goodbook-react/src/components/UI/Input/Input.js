@@ -9,8 +9,7 @@ const Input = (props) => {
 				onChange={props.onChange}
 				onBlur={props.onBlur}
 				value={props.value}
-				className={`${props.className} ${props.login && classes.login} ${props.signup && classes.signup
-					}`}
+				className={`${props.className} ${props.login && classes.login} ${props.signup && classes.signup}`}
 				{...props.input}
 			/>
 		</div>

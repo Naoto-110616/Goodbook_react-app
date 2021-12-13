@@ -4,9 +4,8 @@ import Button from "../UI/Button/Button";
 import Form from "../UI/Form/Form"
 import useInput from "../../hooks/use-input";
 
-const isEmail = value => value.includes("@")
-const isPassword = value => value.length >= 6
-
+const isEmail = value => value.includes("@");
+const isPassword = value => value.length >= 6;
 
 const Login = (props) => {
 	const {
@@ -63,7 +62,6 @@ const Login = (props) => {
 								input={{
 									id: "email",
 									type: "text",
-									autoFocus: "1",
 									placeholder: "Email or Phone Number",
 								}}
 							/>
