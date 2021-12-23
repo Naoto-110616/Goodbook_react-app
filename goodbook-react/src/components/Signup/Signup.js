@@ -60,6 +60,10 @@ const Signup = (props) => {
 		return list;
 	};
 
+	const thisMonth = new Date().getMonth() + 1;
+	const today = new Date().getDate();
+	const thisYear = new Date().getFullYear();
+
 	return (
 		<Modal onClose={props.onClose}>
 			<Form className={classes.signup} type="submit">
@@ -67,7 +71,7 @@ const Signup = (props) => {
 					<div className={classes["signup-text"]}>
 						<div>
 							<h2>Sing Up</h2>
-							<p>It’s quick and easy.</p>
+							<p>It's quick and easy.</p>
 						</div>
 						<div className={classes["signup-x"]}>
 							<i onClick={props.onClose} className="far fa-times-circle"></i>
@@ -82,13 +86,13 @@ const Signup = (props) => {
 					<Input signup={true} input={{ placeholder: "New password" }} />
 					<p className={classes["category-name"]}>Birthday</p>
 					<div className={classes.birthday}>
-						<Select signup={true} select={{ name: "month", title: "month" }}>
+						<Select signup={true} select={{ name: "month", title: "month", value: thisMonth }}>
 							{setMonth()}
 						</Select>
-						<Select signup={true} select={{ name: "day", title: "day" }}>
+						<Select signup={true} select={{ name: "day", title: "day", value: today }}>
 							{setDay()}
 						</Select>
-						<Select signup={true} select={{ name: "year", title: "year" }}>
+						<Select signup={true} select={{ name: "year", title: "year", value: thisYear }}>
 							{setYear()}
 						</Select>
 					</div>
