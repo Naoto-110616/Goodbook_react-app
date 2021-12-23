@@ -13,13 +13,13 @@ const Signup = (props) => {
 	const [birthMonth, setBirthMonth] = useState(new Date().getMonth() + 1);
 	const [birthDay, setBirthDay] = useState(new Date().getDay());
 
-	const [isOpenGender, setIsOpenGender] = useState(false);
+	const [openGender, setOpenGender] = useState(false);
 
 	const customGenderOpenHandler = () => {
-		setIsOpenGender(true);
+		setOpenGender(true);
 	};
 	const customGenderCloseHandler = () => {
-		setIsOpenGender(false);
+		setOpenGender(false);
 	};
 	const setYear = () => {
 		let list = [];
@@ -132,7 +132,7 @@ const Signup = (props) => {
 							}}
 						/>
 					</div>
-					{isOpenGender && <CustomGender />}
+					{openGender && <CustomGender />}
 					<div className={classes["btn-wrap"]}>
 						<Button signup={true}>Sing Up</Button>
 					</div>
