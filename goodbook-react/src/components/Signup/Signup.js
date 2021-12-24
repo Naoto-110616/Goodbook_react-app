@@ -8,11 +8,8 @@ import CustomGender from "./CustomGender/CustomGender";
 import Form from "../UI/Form/Form";
 
 const Signup = (props) => {
-	const [age, setAge] = useState(""); // birthYear, Month, Dayをまとめたもの
 	const [birthYear, setBirthYear] = useState(new Date().getFullYear());
 	const [birthMonth, setBirthMonth] = useState(new Date().getMonth() + 1);
-	const [birthDay, setBirthDay] = useState(new Date().getDay());
-
 	const [openGender, setOpenGender] = useState(false);
 
 	const customGenderOpenHandler = () => {
