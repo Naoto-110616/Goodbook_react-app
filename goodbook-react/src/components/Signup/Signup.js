@@ -21,6 +21,7 @@ const Signup = (props) => {
 	const customGenderCloseHandler = () => {
 		setOpenGender(false);
 	};
+
 	const setYear = () => {
 		let list = [];
 		for (let i = 1900; i <= new Date().getFullYear(); i++) {
