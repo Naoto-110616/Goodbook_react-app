@@ -59,9 +59,13 @@ const Signup = (props) => {
 		return list;
 	};
 
+	const submitSignupHandler = (event) => {
+		event.preventDefault();
+	};
+
 	return (
 		<Modal onClose={props.onClose}>
-			<Form className={classes.signup} type="submit">
+			<Form className={classes.signup} onSubmit={submitSignupHandler}>
 				<div>
 					<div className={classes["signup-text"]}>
 						<div>
