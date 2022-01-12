@@ -1,55 +1,72 @@
 .login {
-  background-color: #f0f2f5;
-  padding: 10rem 0;
+	background-color: #f0f2f5;
+	padding: 10rem 0;
 }
 .login-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .login-left {
-  width: 500px;
-  font-size: 1.5rem;
-  text-align: left;
+	width: 500px;
+	font-size: 1.5rem;
+	text-align: left;
 }
 .login-left h1 {
-  font-size: 3.5rem;
-  margin: 0;
+	font-size: 3.5rem;
+	margin: 0;
 }
 .login-left p {
-  width: 430px;
-  font-weight: 500;
+	width: 430px;
+	font-weight: 500;
 }
 .login-input {
-  width: 100%;
+	width: 100%;
 }
 
 h1 {
-  color: #1877f2;
-  font-size: 3rem;
+	color: #1877f2;
+	font-size: 3rem;
 }
 .login-right {
-  background-color: #fff;
-  padding: 1rem;
-  border-radius: 5px;
-  width: 400px;
-  box-sizing: border-box;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+	background-color: #fff;
+	padding: 1rem;
+	border-radius: 5px;
+	width: 400px;
+	box-sizing: border-box;
+	box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
 }
 .remember {
-  width: 100%;
-  border-bottom: 1px solid #dbdbdb;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
+	width: 100%;
+	border-bottom: 1px solid #dbdbdb;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
 }
 .login-right a {
-  text-decoration: none;
-  color: #1877f2;
-  font-weight: 600;
+	text-decoration: none;
+	color: #1877f2;
+	font-weight: 600;
 }
 .login-right a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 .error-text {
-  color: #b40e0e;
+	color: #b40e0e;
+}
+.login-sp-title {
+	background-color: #1877f2;
+	color: #fff;
+	padding: 10px 0;
+	font-size: 1.5rem;
+}
+@media only screen and (max-width: 768px) {
+	.login {
+		padding: 0;
+	}
+	.login-wrap {
+		display: inline;
+	}
+	.login-right {
+		width: 100%;
+	}
 }

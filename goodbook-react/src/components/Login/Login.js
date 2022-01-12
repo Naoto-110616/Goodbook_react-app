@@ -1,11 +1,13 @@
 import classes from "./Login.module.css";
 import Input from "../UI/Input/Input";
 import Button from "../UI/Button/Button";
-import Form from "../UI/Form/Form"
+import Form from "../UI/Form/Form";
 import useInput from "../../hooks/use-input";
 
-const isEmail = value => value.includes("@");
-const isPassword = value => value.length >= 6;
+import MediaQuery from "react-responsive";
+
+const isEmail = (value) => value.includes("@");
+const isPassword = (value) => value.length >= 6;
 
 const Login = (props) => {
 	const {
@@ -14,8 +16,8 @@ const Login = (props) => {
 		hasError: emailHasError,
 		valueChangeHandler: emailChangeHandler,
 		inputBlurHandler: emailBlurHandler,
-		reset: resetEmail
-	} = useInput(isEmail)
+		reset: resetEmail,
+	} = useInput(isEmail);
 
 	const {
 		value: passwordValue,
@@ -23,34 +25,41 @@ const Login = (props) => {
 		hasError: passwordHasError,
 		valueChangeHandler: passwordChangeHandler,
 		inputBlurHandler: passwordBlurHandler,
-		reset: resetPassword
-	} = useInput(isPassword)
+		reset: resetPassword,
+	} = useInput(isPassword);
 
 	let formIsValid = false;
 	if (emailIsValid && passwordIsValid) {
-		formIsValid = true
+		formIsValid = true;
 	}
 	const submitHandler = (event) => {
 		event.preventDefault();
 		if (!formIsValid) {
 			return;
 		}
-		console.log(emailValue, passwordValue)
+		console.log(emailValue, passwordValue);
 		resetEmail();
 		resetPassword();
-	}
+	};
 
-	const emailClasses = emailHasError ? "login-input invalid" : "login-input"
-	const passwordClasses = passwordHasError ? "login-input invalid" : "login-input"
+	const emailClasses = emailHasError ? "login-input invalid" : "login-input";
+	const passwordClasses = passwordHasError
+		? "login-input invalid"
+		: "login-input";
 
 	return (
 		<>
 			<section className={classes.login}>
 				<div className={classes["login-wrap"]}>
-					<div className={classes["login-left"]}>
-						<h1>goodbook</h1>
-						<p>Connect with friends and the world around you on GoodBook.</p>
-					</div>
+					<MediaQuery query="(min-width: 768px)">
+						<div className={classes["login-left"]}>
+							<h1>goodbook</h1>
+							<p>Connect with friends and the world around you on GoodBook.</p>
+						</div>
+					</MediaQuery>
+					<MediaQuery query="(max-width:767px)">
+						<div className={classes["login-sp-title"]}>goodbook</div>
+					</MediaQuery>
 					<div className={classes["login-right"]}>
 						<Form onSubmit={submitHandler}>
 							<Input
@@ -65,7 +74,11 @@ const Login = (props) => {
 									placeholder: "Email or Phone Number",
 								}}
 							/>
-							{emailHasError && <p className={classes["error-text"]}>Please enter a valid email address.</p>}
+							{emailHasError && (
+								<p className={classes["error-text"]}>
+									Please enter a valid email address.
+								</p>
+							)}
 							<Input
 								login={true}
 								className={passwordClasses}
@@ -78,7 +91,11 @@ const Login = (props) => {
 									placeholder: "Password",
 								}}
 							/>
-							{passwordHasError && <p className={classes["error-text"]}>Please enter at least 6 characters.</p>}
+							{passwordHasError && (
+								<p className={classes["error-text"]}>
+									Please enter at least 6 characters.
+								</p>
+							)}
 							<Button disabled={!formIsValid}>Log In</Button>
 						</Form>
 						<div className={classes.remember}>
