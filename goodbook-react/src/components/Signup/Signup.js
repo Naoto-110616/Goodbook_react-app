@@ -8,8 +8,9 @@ import CustomGender from "./CustomGender/CustomGender";
 import Form from "../UI/Form/Form";
 
 const Signup = (props) => {
-	const [birthYear, setBirthYear] = useState(new Date().getFullYear());
-	const [birthMonth, setBirthMonth] = useState(new Date().getMonth() + 1);
+	const today = new Date().getDate();
+	const birthYear = new Date().getFullYear();
+	const birthMonth = new Date().getMonth() + 1;
 	const [openGender, setOpenGender] = useState(false);
 
 	const customGenderOpenHandler = () => {
@@ -58,10 +59,6 @@ const Signup = (props) => {
 		return list;
 	};
 
-	const thisMonth = new Date().getMonth() + 1;
-	const today = new Date().getDate();
-	const thisYear = new Date().getFullYear();
-
 	return (
 		<Modal onClose={props.onClose}>
 			<Form className={classes.signup} type="submit">
@@ -84,13 +81,22 @@ const Signup = (props) => {
 					<Input signup={true} input={{ placeholder: "New password" }} />
 					<p className={classes["category-name"]}>Birthday</p>
 					<div className={classes.birthday}>
-						<Select signup={true} select={{ name: "month", title: "month", value: thisMonth }}>
+						<Select
+							signup={true}
+							select={{ name: "month", title: "month", value: birthMonth }}
+						>
 							{setMonth()}
 						</Select>
-						<Select signup={true} select={{ name: "day", title: "day", value: today }}>
+						<Select
+							signup={true}
+							select={{ name: "day", title: "day", value: today }}
+						>
 							{setDay()}
 						</Select>
-						<Select signup={true} select={{ name: "year", title: "year", value: thisYear }}>
+						<Select
+							signup={true}
+							select={{ name: "year", title: "year", value: birthYear }}
+						>
 							{setYear()}
 						</Select>
 					</div>

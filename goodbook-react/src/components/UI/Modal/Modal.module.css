@@ -2,7 +2,7 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: 100vw;
 	height: 100vh;
 	z-index: 20;
 	background-color: rgba(255, 255, 255, 0.75);
@@ -10,9 +10,9 @@
 
 .modal {
 	position: fixed;
-	top: 20vh;
-	width: 25%;
-	left: 37.5%;
+	top: 50px;
+	width: 430px;
+	left: calc(50% - 430px / 2);
 	background-color: white;
 	padding: 1rem;
 	border-radius: 14px;
