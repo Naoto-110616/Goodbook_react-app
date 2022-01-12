@@ -1,22 +1,17 @@
-import { useState } from "react";
-import Login from "./components/Login/Login";
 import "./App.css";
-import Signup from "./components/Signup/Signup";
+import { Route, Redirect } from "react-router-dom";
+
+import Auth from "./pages/Auth";
 
 function App() {
-	const [signupIsShown, setSignupIsShown] = useState(false);
-
-	const showSignupHandler = () => {
-		setSignupIsShown(true);
-	};
-	const hideSignupHandler = () => {
-		setSignupIsShown(false);
-	};
-
 	return (
 		<div className="App">
-			{signupIsShown && <Signup onClose={hideSignupHandler} />}
-			<Login onShowSignup={showSignupHandler} />
+			<Route path="/auth">
+				<Auth />
+			</Route>
+			<Route path="*">
+				<Redirect to="/auth" />
+			</Route>
 		</div>
 	);
 }
