@@ -1,7 +1,11 @@
+import Layouts from "../components/Layout/Layouts";
+
 const Home = () => {
 	return (
 		<>
-			<div>Home page</div>
+			<Layouts>
+				<div>Home page</div>
+			</Layouts>
 		</>
 	);
 };
