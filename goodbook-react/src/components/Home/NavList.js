@@ -5,13 +5,13 @@ import { CgProfile } from "react-icons/cg";
 import { FaUserFriends } from "react-icons/fa";
 import { TiGroupOutline } from "react-icons/ti";
 import { RiStarHalfLine } from "react-icons/ri";
+import { BsCalendarEvent } from "react-icons/bs";
 import {
 	IoIosArrowDropdown,
 	IoIosStopwatch,
 	IoMdBookmark,
 	IoIosFlag,
 } from "react-icons/io";
-import { BsCalendarEvent } from "react-icons/bs";
 import {
 	MdOutlineBusinessCenter,
 	MdRecentActors,

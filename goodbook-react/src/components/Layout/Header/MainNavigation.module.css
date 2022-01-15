@@ -10,6 +10,7 @@
 }
 .mainNav li {
 	padding: 8px 0;
+	margin: 0 5px;
 	transition: 0.2s;
 }
 .mainNav li:hover {
@@ -18,7 +19,7 @@
 	transition: 0.2s;
 }
 .mainNav a {
-	padding: 13px 30px;
+	padding: 13px 30px 11px 30px;
 	color: #ddd;
 	text-decoration: none;
 }
@@ -29,5 +30,7 @@
 .mainNav a:active,
 .mainNav a.active {
 	color: #3391ff;
-	border-bottom: 1px solid;
+	border-bottom: 2px solid;
+	background-color: #1c1e1f;
+	cursor: default;
 }
