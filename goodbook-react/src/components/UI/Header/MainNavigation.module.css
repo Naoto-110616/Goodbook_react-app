@@ -1,27 +1,33 @@
-.nav {
+.mainNav {
+	width: 60%;
 }
-.nav ul {
+.mainNav ul {
 	display: flex;
 	list-style: none;
 	padding: 0;
 	margin: 0;
+	justify-content: center;
 }
-.nav li {
-	padding: 10px 30px;
+.mainNav li {
+	padding: 8px 0;
+	transition: 0.2s;
 }
-.nav li:hover {
-	background-color: #ddd;
+.mainNav li:hover {
+	background-color: #727272;
 	border-radius: 6px;
+	transition: 0.2s;
 }
-.nav a {
+.mainNav a {
+	padding: 15px 30px;
 	color: #ddd;
 	text-decoration: none;
 }
-.nav svg {
+.mainNav svg {
 	width: 28px;
 	height: 28px;
 }
-.nav a:active,
-.nav a.active {
+.mainNav a:active,
+.mainNav a.active {
 	color: #3391ff;
+	border-bottom: 1px solid;
 }

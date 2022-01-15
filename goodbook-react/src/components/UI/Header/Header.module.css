@@ -5,8 +5,12 @@ header {
 	color: #ddd;
 	font-size: 1.5rem;
 	align-items: center;
-	padding: 0 3%;
+	padding: 7px 3%;
 	width: 100%;
 	box-sizing: border-box;
 	justify-content: space-between;
+	border-bottom: 1px solid #414448;
+}
+.logo {
+	width: 20%;
 }
