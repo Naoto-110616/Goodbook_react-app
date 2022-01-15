@@ -1,4 +1,4 @@
-import Header from "../UI/Header/Header";
+import Header from "./Header/Header";
 import classes from "./Layout.module.css";
 const Layouts = (props) => {
 	return (

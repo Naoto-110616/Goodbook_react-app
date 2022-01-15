@@ -1,10 +1,13 @@
+import NavList from "../components/Home/NavList";
 import Layouts from "../components/Layout/Layouts";
 
 const Home = () => {
 	return (
 		<>
 			<Layouts>
-				<div>Home page</div>
+				<section>
+					<NavList />
+				</section>
 			</Layouts>
 		</>
 	);
