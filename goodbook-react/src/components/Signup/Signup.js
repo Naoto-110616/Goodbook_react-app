@@ -1,9 +1,12 @@
+import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+import classes from "./Signup.module.css";
+
 import Button from "../UI/Button/Button";
 import Input from "../UI/Input/Input";
 import Modal from "../UI/Modal/Modal";
 import Select from "../UI/Select/Select";
-import classes from "./Signup.module.css";
 import CustomGender from "./CustomGender/CustomGender";
 import Form from "../UI/Form/Form";
 import { customGenderActions } from "../../store/customGender-slice";
@@ -15,6 +18,7 @@ import {
 	setMonth,
 	setDay,
 } from "../../util/Consts";
+
 const Signup = (props) => {
 	const dispatch = useDispatch();
 	const toggleCustomGender = useSelector(
@@ -27,8 +31,41 @@ const Signup = (props) => {
 		dispatch(customGenderActions.close());
 	};
 
+	const emailInputRef = useRef();
+	const passwordInputRef = useRef();
+
+	const [isLogin, setIsLogin] = useState(true);
+
 	const submitSignupHandler = (event) => {
 		event.preventDefault();
+
+		const enteredEmail = emailInputRef.current.value;
+		const enteredPassword = passwordInputRef.current.value;
+
+		if (isLogin) {
+		} else {
+			fetch(
+				"https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBV_HDSl0eps1HRi2_oXPPseJrYlUvBzys",
+				{
+					method: "POST",
+					body: JSON.stringify({
+						email: enteredEmail,
+						password: enteredPassword,
+						returnSecureToken: true,
+					}),
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			).then((res) => {
+				if (res.ok) {
+				} else {
+					return res.json().then((data) => {
+						console.log(data);
+					});
+				}
+			});
+		}
 	};
 
 	return (
@@ -48,26 +85,33 @@ const Signup = (props) => {
 					<Input signup={true} input={{ placeholder: "Last name" }} />
 					<Input
 						signup={true}
-						input={{ placeholder: "Mobile number or email" }}
+						input={{ placeholder: "Email", ref: emailInputRef }}
 					/>
-					<Input signup={true} input={{ placeholder: "New password" }} />
+					<Input
+						signup={true}
+						input={{ placeholder: "New password", ref: passwordInputRef }}
+					/>
 					<p className={classes["category-name"]}>Birthday</p>
 					<div className={classes.birthday}>
 						<Select
 							signup={true}
-							select={{ name: "month", title: "month", value: birthMonth }}
+							select={{
+								name: "month",
+								title: "month",
+								defaultValue: birthMonth,
+							}}
 						>
 							{setMonth()}
 						</Select>
 						<Select
 							signup={true}
-							select={{ name: "day", title: "day", value: today }}
+							select={{ name: "day", title: "day", defaultValue: today }}
 						>
 							{setDay()}
 						</Select>
 						<Select
 							signup={true}
-							select={{ name: "year", title: "year", value: birthYear }}
+							select={{ name: "year", title: "year", defaultValue: birthYear }}
 						>
 							{setYear()}
 						</Select>

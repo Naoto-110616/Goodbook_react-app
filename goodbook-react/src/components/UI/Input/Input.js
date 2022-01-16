@@ -1,9 +1,10 @@
 import classes from "./Input.module.css";
 
 const Input = (props) => {
-
 	const inputClassesWrap = `${classes.input} ${props.radio && classes.radio}`;
-	const inputClasses = `${props.className} ${props.login && classes.login} ${props.signup && classes.signup}`
+	const inputClasses = `${props.className} ${props.login && classes.login} ${
+		props.signup && classes.signup
+	}`;
 
 	return (
 		<div className={inputClassesWrap}>
