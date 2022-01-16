@@ -7,12 +7,15 @@ import classes from "./Signup.module.css";
 import CustomGender from "./CustomGender/CustomGender";
 import Form from "../UI/Form/Form";
 import { customGenderActions } from "../../store/customGender-slice";
-
+import {
+	today,
+	birthYear,
+	birthMonth,
+	setYear,
+	setMonth,
+	setDay,
+} from "../../util/Consts";
 const Signup = (props) => {
-	const today = new Date().getDate();
-	const birthYear = new Date().getFullYear();
-	const birthMonth = new Date().getMonth() + 1;
-
 	const dispatch = useDispatch();
 	const toggleCustomGender = useSelector(
 		(state) => state.customGender.customGenderIsVisible
@@ -22,45 +25,6 @@ const Signup = (props) => {
 	};
 	const customGenderCloseHandler = () => {
 		dispatch(customGenderActions.close());
-	};
-
-	const setYear = () => {
-		let list = [];
-		for (let i = 1900; i <= new Date().getFullYear(); i++) {
-			list.push(
-				<option key={`year_${i}`} value={i}>
-					{i}
-				</option>
-			);
-		}
-		return list;
-	};
-	const setMonth = () => {
-		let list = [];
-		for (let i = 1; i <= 12; i++) {
-			list.push(
-				<option key={`month_${i}`} value={i}>
-					{i}
-				</option>
-			);
-		}
-		return list;
-	};
-	const setDay = () => {
-		let list = [];
-		const lastDay = new Date(
-			Number(birthYear),
-			Number(birthMonth),
-			0
-		).getDate();
-		for (let i = 1; i <= lastDay; i++) {
-			list.push(
-				<option key={`day_${i}`} value={i}>
-					{i}
-				</option>
-			);
-		}
-		return list;
 	};
 
 	const submitSignupHandler = (event) => {
