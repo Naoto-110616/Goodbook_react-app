@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "../UI/Button/Button";
 import Input from "../UI/Input/Input";
 import Modal from "../UI/Modal/Modal";
@@ -6,18 +6,22 @@ import Select from "../UI/Select/Select";
 import classes from "./Signup.module.css";
 import CustomGender from "./CustomGender/CustomGender";
 import Form from "../UI/Form/Form";
+import { customGenderActions } from "../../store/customGender-slice";
 
 const Signup = (props) => {
 	const today = new Date().getDate();
 	const birthYear = new Date().getFullYear();
 	const birthMonth = new Date().getMonth() + 1;
-	const [openGender, setOpenGender] = useState(false);
 
+	const dispatch = useDispatch();
+	const toggleCustomGender = useSelector(
+		(state) => state.customGender.customGenderIsVisible
+	);
 	const customGenderOpenHandler = () => {
-		setOpenGender(true);
+		dispatch(customGenderActions.open());
 	};
 	const customGenderCloseHandler = () => {
-		setOpenGender(false);
+		dispatch(customGenderActions.close());
 	};
 
 	const setYear = () => {
@@ -140,7 +144,7 @@ const Signup = (props) => {
 							}}
 						/>
 					</div>
-					{openGender && <CustomGender />}
+					{toggleCustomGender && <CustomGender />}
 					<div className={classes["btn-wrap"]}>
 						<Button signup={true}>Sing Up</Button>
 					</div>
