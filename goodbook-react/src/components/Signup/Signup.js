@@ -34,38 +34,38 @@ const Signup = (props) => {
 	const emailInputRef = useRef();
 	const passwordInputRef = useRef();
 
-	const [isLogin, setIsLogin] = useState(true);
-
+	const isLogin = useSelector((state) => state.signup.signupIsVisible);
+	console.log(isLogin);
 	const submitSignupHandler = (event) => {
 		event.preventDefault();
 
 		const enteredEmail = emailInputRef.current.value;
 		const enteredPassword = passwordInputRef.current.value;
-
-		if (isLogin) {
-		} else {
-			fetch(
-				"https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBV_HDSl0eps1HRi2_oXPPseJrYlUvBzys",
-				{
-					method: "POST",
-					body: JSON.stringify({
-						email: enteredEmail,
-						password: enteredPassword,
-						returnSecureToken: true,
-					}),
-					headers: {
-						"Content-Type": "application/json",
-					},
-				}
-			).then((res) => {
-				if (res.ok) {
-				} else {
-					return res.json().then((data) => {
-						console.log(data);
-					});
-				}
-			});
-		}
+		fetch(
+			"https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBV_HDSl0eps1HRi2_oXPPseJrYlUvBzys",
+			{
+				method: "POST",
+				body: JSON.stringify({
+					email: enteredEmail,
+					password: enteredPassword,
+					returnSecureToken: true,
+				}),
+				headers: {
+					"Content-Type": "application/json",
+				},
+			}
+		).then((res) => {
+			if (res.ok) {
+			} else {
+				return res.json().then((data) => {
+					let errorMessage = "Authentication failed!";
+					if (data && data.error && data.error.message) {
+						errorMessage = data.error.message;
+					}
+					alert(errorMessage);
+				});
+			}
+		});
 	};
 
 	return (
@@ -85,7 +85,10 @@ const Signup = (props) => {
 					<Input signup={true} input={{ placeholder: "Last name" }} />
 					<Input
 						signup={true}
-						input={{ placeholder: "Email", ref: emailInputRef }}
+						input={{
+							placeholder: "Email",
+							ref: emailInputRef,
+						}}
 					/>
 					<Input
 						signup={true}
