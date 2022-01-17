@@ -44,7 +44,7 @@ const NavList = () => {
 	};
 	return (
 		<>
-			<div className={classes.navList}>
+			<nav className={classes.navList}>
 				<ul>
 					<li>
 						<NavLink to="user">
@@ -227,7 +227,7 @@ const NavList = () => {
 						</li>
 					)}
 				</ul>
-			</div>
+			</nav>
 		</>
 	);
 };

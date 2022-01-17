@@ -7,6 +7,7 @@ const signupSlice = createSlice({
 		toggle(state) {
 			state.signupIsVisible = !state.signupIsVisible;
 		},
+		signup(state) {},
 	},
 });
 
