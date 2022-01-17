@@ -5,4 +5,37 @@
 	list-style: none;
 	padding: 0;
 	margin: 0;
+	display: flex;
+	justify-content: space-between;
+}
+.subNav li {
+	display: flex;
+	align-items: center;
+	transition: 0.2s;
+}
+.subNav li p {
+	font-size: 1rem;
+	margin: 0;
+}
+
+.subNav li:hover {
+	background-color: #7a7a7a;
+	transition: 0.2s;
+	cursor: pointer;
+}
+
+.profile {
+	padding: 0 5px;
+	border-radius: 10px;
+}
+.profile svg {
+	margin: 0 2px 0 0;
+}
+.circle {
+	background-color: #494949;
+	border-radius: 30px;
+	padding: 8px;
+}
+.circle svg {
+	font-size: 1.3rem;
 }
