@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 import classes from "./Login.module.css";
 import Input from "../UI/Input/Input";
 import Button from "../UI/Button/Button";
@@ -32,14 +34,41 @@ const Login = (props) => {
 	if (emailIsValid && passwordIsValid) {
 		formIsValid = true;
 	}
-	const submitHandler = (event) => {
+	const emailInputRef = useRef();
+	const passwordInputRef = useRef();
+	const submitLoginHandler = (event) => {
 		event.preventDefault();
 		if (!formIsValid) {
 			return;
 		}
-		console.log(emailValue, passwordValue);
-		resetEmail();
-		resetPassword();
+
+		const enteredEmail = emailInputRef.current.value;
+		const enteredPassword = passwordInputRef.current.value;
+		fetch(
+			"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBV_HDSl0eps1HRi2_oXPPseJrYlUvBzys",
+			{
+				method: "POST",
+				body: JSON.stringify({
+					email: enteredEmail,
+					password: enteredPassword,
+					returnSecureToken: true,
+				}),
+				headers: {
+					"Content-Type": "application/json",
+				},
+			}
+		).then((res) => {
+			if (res.ok) {
+			} else {
+				return res.json().then((data) => {
+					let errorMessage = "Authentication failed!";
+					if (data && data.error && data.error.message) {
+						errorMessage = data.error.message;
+					}
+					alert(errorMessage);
+				});
+			}
+		});
 	};
 
 	const emailClasses = emailHasError ? "login-input invalid" : "login-input";
@@ -61,7 +90,7 @@ const Login = (props) => {
 						<div className={classes["login-sp-title"]}>goodbook</div>
 					</MediaQuery>
 					<div className={classes["login-right"]}>
-						<Form onSubmit={submitHandler}>
+						<Form onSubmit={submitLoginHandler}>
 							<Input
 								login={true}
 								className={emailClasses}
@@ -72,6 +101,7 @@ const Login = (props) => {
 									id: "email",
 									type: "text",
 									placeholder: "Email or Phone Number",
+									ref: emailInputRef,
 								}}
 							/>
 							{emailHasError && (
@@ -89,6 +119,7 @@ const Login = (props) => {
 									id: "pass",
 									type: "password",
 									placeholder: "Password",
+									ref: passwordInputRef,
 								}}
 							/>
 							{passwordHasError && (
