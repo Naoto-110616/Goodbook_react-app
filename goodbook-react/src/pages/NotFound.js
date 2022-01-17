@@ -10,7 +10,7 @@ const NotFound = () => {
 				<GiBreakingChain />
 				<p className={classes.title}>This Page Isn't Available</p>
 				<p className={classes.description}>
-					The lin may be broken, or the page may have been removed.
+					The link may be broken, or the page may have been removed.
 					<br />
 					Check to see if the link you7re trying to open is correct.
 				</p>
