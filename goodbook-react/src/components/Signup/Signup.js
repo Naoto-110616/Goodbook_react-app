@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import classes from "./Signup.module.css";
 
@@ -20,6 +21,7 @@ import {
 } from "../../util/Consts";
 
 const Signup = (props) => {
+	const history = useHistory();
 	const dispatch = useDispatch();
 	const toggleCustomGender = useSelector(
 		(state) => state.customGender.customGenderIsVisible
@@ -56,6 +58,7 @@ const Signup = (props) => {
 			}
 		).then((res) => {
 			if (res.ok) {
+				history.push("/home");
 			} else {
 				return res.json().then((data) => {
 					let errorMessage = "Authentication failed!";
