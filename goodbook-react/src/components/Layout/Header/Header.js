@@ -5,7 +5,7 @@ import SubNavigation from "./SubNavigation";
 const Header = (props) => {
 	return (
 		<header>
-			<div className={classes.logo}>goodbook</div>
+			<h1 className={classes.logo}>goodbook</h1>
 			<MainNavigation />
 			<SubNavigation />
 		</header>
