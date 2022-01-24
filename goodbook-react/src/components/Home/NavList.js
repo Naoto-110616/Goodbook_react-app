@@ -65,10 +65,7 @@ const navList = [
 		id: "nav9", link: "/jobs", icon: <MdOutlineBusinessCenter />, title: "Jobs"
 	},
 	{
-		id: "nav10", link: "/find_friend", icon: <MdRecentActors />, title: "Find friends"
-	},
-	{
-		id: "nav11", link: "/most_recent", icon: <MdRecentActors />, title: "Most recent"
+		id: "nav10", link: "/most_recent", icon: <MdRecentActors />, title: "Most recent"
 	},
 ]
 const seeMoreNavList = [
