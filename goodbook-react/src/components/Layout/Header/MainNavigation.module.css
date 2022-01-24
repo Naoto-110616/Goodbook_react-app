@@ -34,3 +34,14 @@
 	background-color: #1c1e1f;
 	cursor: default;
 }
+@media only screen and (max-width: 768px) {
+	.mainNav {
+		width: 100%;
+	}
+	.mainNav li {
+		margin: 0;
+	}
+	.mainNav a {
+		padding: 13px 23px 12px 23px;
+	}
+}

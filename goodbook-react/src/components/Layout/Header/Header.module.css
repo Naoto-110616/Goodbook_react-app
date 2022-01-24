@@ -16,3 +16,11 @@ header {
 	font-size: 2rem;
 	margin: 0;
 }
+@media only screen and (max-width: 768px) {
+	header {
+		display: block;
+	}
+	.logo {
+		width: 100%;
+	}
+}

@@ -2,6 +2,8 @@ import NavList from "../components/Home/NavList";
 import Post from "../components/Home/Post";
 import Layouts from "../components/Layout/Layouts";
 
+import MediaQuery from "react-responsive";
+
 import classes from "./Home.module.css";
 
 const Home = () => {
@@ -9,7 +11,9 @@ const Home = () => {
 		<>
 			<Layouts>
 				<section className={classes.section}>
-					<NavList />
+					<MediaQuery query="(min-width:767px)">
+						<NavList />
+					</MediaQuery>
 					<Post />
 				</section>
 			</Layouts>
