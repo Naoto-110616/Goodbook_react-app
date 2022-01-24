@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useHistory } from "react-router-dom";
 
 import classes from "./Login.module.css";
 import Input from "../UI/Input/Input";
@@ -11,7 +12,10 @@ import MediaQuery from "react-responsive";
 const isEmail = (value) => value.includes("@");
 const isPassword = (value) => value.length >= 6;
 
+
 const Login = (props) => {
+	const history = useHistory()
+
 	const {
 		value: emailValue,
 		isValid: emailIsValid,
@@ -59,6 +63,9 @@ const Login = (props) => {
 			}
 		).then((res) => {
 			if (res.ok) {
+				resetEmail()
+				resetPassword()
+				history.push("/home");
 			} else {
 				return res.json().then((data) => {
 					let errorMessage = "Authentication failed!";
