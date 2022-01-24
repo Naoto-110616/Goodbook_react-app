@@ -15,39 +15,8 @@ const isPassword = (value) => value.length >= 6;
 const Login = (props) => {
 	const history = useHistory();
 
-	const autoLoginHandler = (event) => {
-		event.preventDefault();
-		if (!formIsValid) {
-			return;
-		}
-		fetch(
-			"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBV_HDSl0eps1HRi2_oXPPseJrYlUvBzys",
-			{
-				method: "POST",
-				body: JSON.stringify({
-					email: "test@test.com",
-					password: "aaaaaaa",
-					returnSecureToken: true,
-				}),
-				headers: {
-					"Content-Type": "application/json",
-				},
-			}
-		).then((res) => {
-			if (res.ok) {
-				resetEmail();
-				resetPassword();
-				history.push("/home");
-			} else {
-				return res.json().then((data) => {
-					let errorMessage = "Authentication failed!";
-					if (data && data.error && data.error.message) {
-						errorMessage = data.error.message;
-					}
-					alert(errorMessage);
-				});
-			}
-		});
+	const autoLoginHandler = () => {
+		history.push("/home");
 	};
 
 	const {
