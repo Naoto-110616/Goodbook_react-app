@@ -1,6 +1,8 @@
+import Layouts from "../components/Layout/Layouts";
+
 import NavList from "../components/Home/NavList";
 import Post from "../components/Home/Post";
-import Layouts from "../components/Layout/Layouts";
+import Sponsored from "../components/Home/Sponsored";
 
 import MediaQuery from "react-responsive";
 
@@ -15,6 +17,7 @@ const Home = () => {
 						<NavList />
 					</MediaQuery>
 					<Post />
+					<Sponsored />
 				</section>
 			</Layouts>
 		</>
