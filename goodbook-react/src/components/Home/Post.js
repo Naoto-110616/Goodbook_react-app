@@ -2,7 +2,6 @@ import classes from "./Post.module.css";
 
 import { HiOutlinePlus, HiVideoCamera, HiPhotograph } from "react-icons/hi";
 import { CgProfile, CgSmile } from "react-icons/cg";
-import PostCard from "./PostCard/PostCard";
 
 const Post = () => {
 	return (
@@ -10,17 +9,17 @@ const Post = () => {
 			<div className={classes.post}>
 				<div className={classes.createBtn}>
 					<HiOutlinePlus />
-					<PostCard>
+					<div>
 						<p>Create Story</p>
 						<p className={classes.share}>share a photo or write something.</p>
-					</PostCard>
+					</div>
 				</div>
-				<div>
-					<div>
+				<div className={classes.postBtnWrap}>
+					<div className={classes.postBtn}>
 						<CgProfile />
 						<button>What's on your mind, test?</button>
 					</div>
-					<div>
+					<div className={classes.postList}>
 						<ul>
 							<li>
 								<HiVideoCamera />

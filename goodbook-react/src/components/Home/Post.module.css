@@ -5,15 +5,16 @@
 }
 .createBtn {
 	display: flex;
-	background-color: #ddd;
+	background-color: #1c1e1f;
 	align-items: center;
 	border-radius: 5px;
 	padding: 10px;
+	margin: 0 0 10px 0;
 }
 .createBtn svg {
 	color: rgb(45, 150, 243);
-	font-size: 2rem;
-	background-color: rgba(45, 150, 243, 0.7);
+	font-size: 1.6rem;
+	background-color: rgba(45, 150, 243, 0.2);
 	padding: 5px;
 	border-radius: 50%;
 }
@@ -24,4 +25,58 @@
 }
 .share {
 	color: #999;
+}
+.postBtnWrap {
+	background-color: #1c1e1f;
+	padding: 10px;
+}
+.postBtn {
+	display: flex;
+	align-items: center;
+	border-bottom: #4b5053 solid 1px;
+	padding: 0 0 10px 0;
+}
+.postBtn svg {
+	font-size: 2.5rem;
+}
+.postBtn button {
+	width: 100%;
+	text-align: left;
+	border-radius: 30px;
+	font-size: 1.3rem;
+	background-color: #999;
+	padding: 6px;
+	border: none;
+	outline: none;
+	margin: 0 0 0 5px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+.postBtn button:hover {
+	background-color: #e5e5e5;
+	transition: 0.3s;
+}
+.postList ul {
+	display: flex;
+	justify-content: space-around;
+	padding: 0;
+	margin: 6px 0 0 0;
+}
+.postList li {
+	display: flex;
+	align-items: center;
+	padding: 5px;
+	box-sizing: border-box;
+	border-radius: 5px;
+}
+.postList li:hover {
+	background-color: #4b5053;
+	cursor: pointer;
+}
+.postList li svg {
+	font-size: 1.8rem;
+	margin: 0 4px 0 0;
+}
+.postList li p {
+	margin: 0;
 }
