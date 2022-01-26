@@ -10,7 +10,7 @@ const Header = (props) => {
 		<header>
 			<h1 className={classes.logo}>goodbook</h1>
 			<MainNavigation />
-			<MediaQuery query="(min-width:767px)">
+			<MediaQuery query="(min-width:768px)">
 				<SubNavigation />
 			</MediaQuery>
 		</header>

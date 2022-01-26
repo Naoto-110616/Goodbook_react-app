@@ -41,10 +41,11 @@
 }
 .postBtn button {
 	width: 100%;
+	color: #ddd;
 	text-align: left;
 	border-radius: 30px;
 	font-size: 1.3rem;
-	background-color: #999;
+	background-color: #4b5053;
 	padding: 6px;
 	border: none;
 	outline: none;
@@ -53,7 +54,7 @@
 	transition: 0.3s;
 }
 .postBtn button:hover {
-	background-color: #e5e5e5;
+	background-color: #60676b;
 	transition: 0.3s;
 }
 .postList ul {
@@ -68,10 +69,14 @@
 	padding: 5px;
 	box-sizing: border-box;
 	border-radius: 5px;
+	width: 30%;
+	justify-content: center;
+	transition: 0.2s;
 }
 .postList li:hover {
 	background-color: #4b5053;
 	cursor: pointer;
+	transition: 0.2s;
 }
 .postList li svg {
 	font-size: 1.8rem;
@@ -79,4 +84,15 @@
 }
 .postList li p {
 	margin: 0;
+}
+
+@media only screen and (max-width: 768px) {
+	.post {
+		width: 100%;
+		padding: 40px 0 0 0;
+	}
+	.postBtn {
+		border: none;
+		padding: 0;
+	}
 }

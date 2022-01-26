@@ -1,6 +1,6 @@
 import classes from "./SubNavigation.module.css";
-import { FaUserCircle, FaFacebookMessenger } from "react-icons/fa";
-import { CgMenuGridO } from "react-icons/cg";
+import { FaFacebookMessenger } from "react-icons/fa";
+import { CgMenuGridO, CgProfile } from "react-icons/cg";
 import { MdNotificationsActive, MdOutlineArrowDropDown } from "react-icons/md";
 
 const SubNavigation = () => {
@@ -8,7 +8,7 @@ const SubNavigation = () => {
 		<nav className={classes.subNav}>
 			<ul>
 				<li className={classes.profile}>
-					<FaUserCircle />
+					<CgProfile />
 					<p>Name</p>
 				</li>
 				<li className={classes.circle}>
