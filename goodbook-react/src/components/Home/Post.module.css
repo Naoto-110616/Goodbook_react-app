@@ -9,10 +9,10 @@
 	align-items: center;
 	border-radius: 5px;
 	padding: 10px;
-	margin: 0 0 10px 0;
+	margin: 0 0 20px 0;
 }
 .createBtn svg {
-	color: rgb(45, 150, 243);
+	color: #1877f2;
 	font-size: 1.6rem;
 	background-color: rgba(45, 150, 243, 0.2);
 	padding: 5px;
@@ -29,6 +29,7 @@
 .postBtnWrap {
 	background-color: #1c1e1f;
 	padding: 10px;
+	border-radius: 5px;
 }
 .postBtn {
 	display: flex;
@@ -85,7 +86,141 @@
 .postList li p {
 	margin: 0;
 }
-
+.postCard {
+	background-color: #1c1e1f;
+	border-radius: 5px;
+	margin: 20px 0 0 0;
+}
+.postCardDetail {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 20px;
+	box-sizing: border-box;
+}
+.postUser {
+	display: flex;
+	align-items: center;
+}
+.postUser p {
+	margin: 0;
+	text-align: left;
+}
+.postTime {
+	font-size: 0.8rem;
+	color: #999;
+}
+.postIcon {
+	background-color: #fff;
+	border-radius: 50%;
+	padding: 10px;
+	width: 25px;
+	height: 25px;
+	margin: 0 10px 0 0;
+}
+.postIcon img {
+	width: 100%;
+}
+.threeDots {
+	font-size: 1.3rem;
+	padding: 8px;
+}
+.threeDots:hover {
+	background-color: #4b5053;
+	border-radius: 50%;
+	cursor: pointer;
+	padding: 8px;
+}
+.postSentence {
+	padding: 0 20px;
+}
+.postSentence p {
+	text-align: left;
+	font-size: 16px;
+	margin: 0 0 20px 0;
+}
+.postImg img {
+	width: 100%;
+}
+.postActionWrap {
+	padding: 20px 20px 0 20px;
+}
+.likeShareNum {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: #4b5053 solid 1px;
+	padding: 0 0 10px 0;
+}
+.likeShareNum p {
+	margin: 0;
+}
+.likeNum {
+	display: flex;
+	align-items: center;
+}
+.like {
+	margin: 0 10px 0 0;
+}
+.postAction ul {
+	display: flex;
+	margin: 0 0 0 0;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0;
+}
+.postAction li {
+	display: flex;
+	align-items: center;
+	width: 30%;
+	padding: 10px;
+	justify-content: center;
+	border-radius: 5px;
+	box-sizing: border-box;
+	transition: 0.2s;
+}
+.postAction li:hover {
+	background-color: #4b5053;
+	cursor: pointer;
+	transition: 0.2s;
+}
+.postAction svg {
+	font-size: 1.2rem;
+	margin: 0 10px 0 0;
+}
+.postAction p {
+	margin: 0 0 0 0;
+}
+.NoMore {
+	background-color: #1c1e1f;
+	margin: 20px 0 0 0;
+	border-radius: 5px;
+	color: #999;
+	padding: 10px;
+	box-sizing: border-box;
+}
+.NoMore p {
+	margin: 10px 0 10px 0;
+}
+.NoMorePost {
+	font-size: 1.4rem;
+	font-weight: 700;
+}
+.NoMore button {
+	color: #fff;
+	background-color: #1877f2;
+	border: none;
+	outline: none;
+	padding: 10px;
+	border-radius: 5px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: 0.2s;
+}
+.NoMore button:hover {
+	background-color: #4795f4;
+	transition: 0.2s;
+}
 @media only screen and (max-width: 768px) {
 	.post {
 		width: 100%;

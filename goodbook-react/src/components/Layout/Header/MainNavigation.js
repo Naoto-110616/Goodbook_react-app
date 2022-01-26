@@ -45,7 +45,7 @@ const MainNavigation = () => {
 					</MediaQuery>
 					<MediaQuery query="(max-width:767px)">
 						<li>
-							<NavLink to="/ttt" activeClassName={classes.active}>
+							<NavLink to="/burger" activeClassName={classes.active}>
 								<GiHamburgerMenu />
 							</NavLink>
 						</li>
