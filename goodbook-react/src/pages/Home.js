@@ -13,11 +13,13 @@ const Home = () => {
 		<>
 			<Layouts>
 				<section className={classes.section}>
-					<MediaQuery query="(min-width:767px)">
+					<MediaQuery query="(min-width:768px)">
 						<NavList />
 					</MediaQuery>
 					<Post />
-					<Sponsored />
+					<MediaQuery query="(min-width:768px)">
+						<Sponsored />
+					</MediaQuery>
 				</section>
 			</Layouts>
 		</>
