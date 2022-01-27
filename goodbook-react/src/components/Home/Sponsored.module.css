@@ -9,10 +9,13 @@
 	padding: 10px;
 	box-sizing: border-box;
 	border-radius: 5px;
+	text-decoration: none;
+	transition: 0.2s;
 }
 .sponsoredColumn:hover {
 	background-color: rgba(204, 204, 204, 0.2);
 	padding: 10px;
+	transition: 0.2s;
 }
 .sponsoredColumnImg {
 	margin: 0 10px 0 0;
