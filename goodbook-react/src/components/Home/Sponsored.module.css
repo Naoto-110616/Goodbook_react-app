@@ -1,3 +1,42 @@
 .sponsored {
 	width: 20%;
+	text-align: left;
+}
+.sponsoredColumn {
+	display: flex;
+	align-items: center;
+	margin: 0 0 10px 0;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 5px;
+}
+.sponsoredColumn:hover {
+	background-color: rgba(204, 204, 204, 0.2);
+	padding: 10px;
+}
+.sponsoredColumnImg {
+	margin: 0 10px 0 0;
+}
+.sponsoredColumn img {
+	width: 120px;
+	border-radius: 5px;
+}
+.sponsoredColumn p {
+	color: #ccc;
+	margin: 0;
+	font-size: 0.8rem;
+}
+.groupConversations {
+	text-align: left;
+}
+.createConversationsBtn {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+.createConversationsBtn svg {
+	padding: 10px;
+	background-color: rgba(204, 204, 204, 0.3);
+	border-radius: 50%;
+	margin: 0 10px 0 0;
 }

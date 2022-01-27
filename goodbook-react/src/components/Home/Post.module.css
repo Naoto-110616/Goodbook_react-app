@@ -138,6 +138,7 @@
 	text-align: left;
 	font-size: 16px;
 	margin: 0 0 20px 0;
+	word-wrap: break-word;
 }
 .postImg img {
 	width: 100%;
@@ -187,6 +188,7 @@
 .postAction svg {
 	font-size: 1.2rem;
 	margin: 0 10px 0 0;
+	flex-shrink: 0;
 }
 .postAction p {
 	margin: 0 0 0 0;
