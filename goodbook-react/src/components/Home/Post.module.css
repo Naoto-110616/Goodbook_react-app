@@ -2,6 +2,7 @@
 	width: 60%;
 	padding: 20px 10% 0 10%;
 	box-sizing: border-box;
+	margin: 0 0 0 20%;
 }
 .createBtn {
 	display: flex;
@@ -227,6 +228,7 @@
 	.post {
 		width: 100%;
 		padding: 40px 0 0 0;
+		margin: 0;
 	}
 	.postBtn {
 		border: none;

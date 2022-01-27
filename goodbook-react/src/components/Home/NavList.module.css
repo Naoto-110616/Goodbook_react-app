@@ -4,6 +4,7 @@
 	height: 88vh;
 	overflow: scroll;
 	box-sizing: border-box;
+	position: fixed;
 }
 .navList::-webkit-scrollbar {
 	display: none;

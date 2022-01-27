@@ -1,6 +1,8 @@
 .sponsored {
 	width: 20%;
 	text-align: left;
+	position: fixed;
+	right: 0;
 }
 .sponsoredColumn {
 	display: flex;
