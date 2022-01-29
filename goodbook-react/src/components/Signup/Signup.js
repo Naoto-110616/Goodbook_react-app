@@ -19,6 +19,7 @@ import {
 	setMonth,
 	setDay,
 } from "../../util/Consts";
+import { signupActions } from "../../store/signup-slice";
 
 const Signup = (props) => {
 	const history = useHistory();
@@ -40,35 +41,9 @@ const Signup = (props) => {
 	console.log(isLogin);
 	const submitSignupHandler = (event) => {
 		event.preventDefault();
-
 		const enteredEmail = emailInputRef.current.value;
 		const enteredPassword = passwordInputRef.current.value;
-		fetch(
-			"https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBV_HDSl0eps1HRi2_oXPPseJrYlUvBzys",
-			{
-				method: "POST",
-				body: JSON.stringify({
-					email: enteredEmail,
-					password: enteredPassword,
-					returnSecureToken: true,
-				}),
-				headers: {
-					"Content-Type": "application/json",
-				},
-			}
-		).then((res) => {
-			if (res.ok) {
-				history.push("/home");
-			} else {
-				return res.json().then((data) => {
-					let errorMessage = "Authentication failed!";
-					if (data && data.error && data.error.message) {
-						errorMessage = data.error.message;
-					}
-					alert(errorMessage);
-				});
-			}
-		});
+		dispatch(signupActions.signup({ enteredEmail, enteredPassword }));
 	};
 
 	return (
