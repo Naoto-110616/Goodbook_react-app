@@ -8,12 +8,15 @@ import Form from "../UI/Form/Form";
 import useInput from "../../hooks/use-input";
 
 import MediaQuery from "react-responsive";
+import { useDispatch } from "react-redux";
+import { submitActions } from "../../store/submit-slice";
 
 const isEmail = (value) => value.includes("@");
 const isPassword = (value) => value.length >= 6;
 
 const Login = (props) => {
 	const history = useHistory();
+	const dispatch = useDispatch();
 
 	const autoLoginHandler = () => {
 		history.push("/home");
@@ -48,37 +51,13 @@ const Login = (props) => {
 		if (!formIsValid) {
 			return;
 		}
-
 		const enteredEmail = emailInputRef.current.value;
 		const enteredPassword = passwordInputRef.current.value;
-		fetch(
-			"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBV_HDSl0eps1HRi2_oXPPseJrYlUvBzys",
-			{
-				method: "POST",
-				body: JSON.stringify({
-					email: enteredEmail,
-					password: enteredPassword,
-					returnSecureToken: true,
-				}),
-				headers: {
-					"Content-Type": "application/json",
-				},
-			}
-		).then((res) => {
-			if (res.ok) {
-				resetEmail();
-				resetPassword();
-				history.push("/home");
-			} else {
-				return res.json().then((data) => {
-					let errorMessage = "Authentication failed!";
-					if (data && data.error && data.error.message) {
-						errorMessage = data.error.message;
-					}
-					alert(errorMessage);
-				});
-			}
-		});
+		const destination =
+			"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBV_HDSl0eps1HRi2_oXPPseJrYlUvBzys";
+		dispatch(
+			submitActions.submit({ enteredEmail, enteredPassword, destination })
+		);
 	};
 
 	const emailClasses = emailHasError ? "login-input invalid" : "login-input";

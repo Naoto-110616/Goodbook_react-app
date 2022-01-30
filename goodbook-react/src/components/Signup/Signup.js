@@ -19,7 +19,7 @@ import {
 	setMonth,
 	setDay,
 } from "../../util/Consts";
-import { signupActions } from "../../store/signup-slice";
+import { submitActions } from "../../store/submit-slice";
 
 const Signup = (props) => {
 	const history = useHistory();
@@ -34,16 +34,21 @@ const Signup = (props) => {
 		dispatch(customGenderActions.close());
 	};
 
+	const isLogin = useSelector((state) => state.signup.signupIsVisible);
+	console.log(isLogin);
+
 	const emailInputRef = useRef();
 	const passwordInputRef = useRef();
 
-	const isLogin = useSelector((state) => state.signup.signupIsVisible);
-	console.log(isLogin);
 	const submitSignupHandler = (event) => {
 		event.preventDefault();
 		const enteredEmail = emailInputRef.current.value;
 		const enteredPassword = passwordInputRef.current.value;
-		dispatch(signupActions.signup({ enteredEmail, enteredPassword }));
+		const destination =
+			"https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBV_HDSl0eps1HRi2_oXPPseJrYlUvBzys";
+		dispatch(
+			submitActions.submit({ enteredEmail, enteredPassword, destination })
+		);
 	};
 
 	return (
