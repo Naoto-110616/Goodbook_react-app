@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const submitSlice = createSlice({
 	name: "submit",
-	initialState: {},
+	initialState: { token: "" },
 	reducers: {
 		submit(state, action) {
 			const enteredEmail = action.payload.enteredEmail;
@@ -17,19 +17,26 @@ const submitSlice = createSlice({
 				headers: {
 					"Content-Type": "application/json",
 				},
-			}).then((res) => {
-				if (res.ok) {
-					// history.push("/home");
-				} else {
-					return res.json().then((data) => {
-						let errorMessage = "Authentication failed!";
-						if (data && data.error && data.error.message) {
-							errorMessage = data.error.message;
-						}
-						alert(errorMessage);
-					});
-				}
-			});
+			})
+				.then((res) => {
+					if (res.ok) {
+						return res.json();
+					} else {
+						return res.json().then((data) => {
+							let errorMessage = "Authentication failed!";
+							if (data && data.error && data.error.message) {
+								errorMessage = data.error.message;
+							}
+							throw new Error(errorMessage);
+						});
+					}
+				})
+				.then((data) => {
+					console.log(data.idToken);
+				})
+				.catch((err) => {
+					alert(err.message);
+				});
 		},
 	},
 });
