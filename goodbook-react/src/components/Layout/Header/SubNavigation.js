@@ -15,6 +15,7 @@ const SubNavigation = () => {
 	const subMenuToggleHandler = () => {
 		dispatch(subMenuActions.toggle());
 	};
+
 	return (
 		<>
 			<nav className={classes.subNav}>
