@@ -9,7 +9,14 @@ import {
 } from "react-icons/md";
 import { BsFillGearFill } from "react-icons/bs";
 
+import { useDispatch } from "react-redux";
+import { authActions } from "../../../../store/auth-slice";
+
 const SubMenu = () => {
+	const dispatch = useDispatch();
+	const logoutHandler = () => {
+		dispatch(authActions.logout());
+	};
 	return (
 		<>
 			<div className={classes.subMenu}>
@@ -44,7 +51,7 @@ const SubMenu = () => {
 							<p>Display & Accessibility</p>
 							<MdArrowForwardIos className={classes.arrow} />
 						</li>
-						<li>
+						<li onClick={logoutHandler}>
 							<MdLogout />
 							<p>Log Out</p>
 						</li>

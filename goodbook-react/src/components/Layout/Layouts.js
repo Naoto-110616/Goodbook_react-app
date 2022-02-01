@@ -6,13 +6,13 @@ import { useDispatch } from "react-redux";
 
 const Layouts = (props) => {
 	const dispatch = useDispatch();
-	const subMenuToggleHandler = () => {
+	const subMenuCloseHandler = () => {
 		dispatch(subMenuActions.close());
 	};
 	return (
 		<>
 			<Header />
-			<main className={classes.main} onClick={subMenuToggleHandler}>
+			<main className={classes.main} onClick={subMenuCloseHandler}>
 				{props.children}
 			</main>
 		</>
