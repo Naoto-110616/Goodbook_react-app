@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 const Layouts = (props) => {
 	const dispatch = useDispatch();
 	const subMenuToggleHandler = () => {
-		dispatch(subMenuActions.toggle());
+		dispatch(subMenuActions.close());
 	};
 	return (
 		<>

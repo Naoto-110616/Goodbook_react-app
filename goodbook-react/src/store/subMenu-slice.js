@@ -6,7 +6,10 @@ const subMenuSlice = createSlice({
 	reducers: {
 		toggle(state) {
 			state.subMenuVisible = !state.subMenuVisible;
-		},
+        },
+        close(state) {
+            state.subMenuVisible = false;
+        }
 	},
 });
 
