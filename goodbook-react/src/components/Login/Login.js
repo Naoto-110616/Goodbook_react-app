@@ -22,12 +22,40 @@ const Login = (props) => {
 	const autoLoginHandler = () => {
 		const enteredEmail = "ttt@ttt.com";
 		const enteredPassword = "ttttttt";
-		const destination =
-			"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBV_HDSl0eps1HRi2_oXPPseJrYlUvBzys";
-		dispatch(
-			submitActions.submit({ enteredEmail, enteredPassword, destination })
-		);
-		history.push("/home");
+		fetch(
+			"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBV_HDSl0eps1HRi2_oXPPseJrYlUvBzys",
+			{
+				method: "POST",
+				body: JSON.stringify({
+					email: enteredEmail,
+					password: enteredPassword,
+					returnSecureToken: true,
+				}),
+				headers: {
+					"Content-Type": "application/json",
+				},
+			}
+		)
+			.then((res) => {
+				if (res.ok) {
+					return res.json();
+				} else {
+					return res.json().then((data) => {
+						let errorMessage = "Authentication failed!";
+						if (data && data.error && data.error.message) {
+							errorMessage = data.error.message;
+						}
+						throw new Error(errorMessage);
+					});
+				}
+			})
+			.then((data) => {
+				dispatch(authActions.login({ token: data.idToken }));
+				history.push("/home");
+			})
+			.catch((err) => {
+				alert(err.message);
+			});
 	};
 
 	const {
