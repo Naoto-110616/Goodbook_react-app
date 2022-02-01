@@ -8,13 +8,16 @@ import Form from "../UI/Form/Form";
 import useInput from "../../hooks/use-input";
 
 import MediaQuery from "react-responsive";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { submitActions } from "../../store/submit-slice";
+import { authActions } from "../../store/auth-slice";
 
 const isEmail = (value) => value.includes("@");
 const isPassword = (value) => value.length >= 6;
 
 const Login = (props) => {
+	const token = useSelector((state) => state.auth.token);
+	console.log(token);
 	const history = useHistory();
 	const dispatch = useDispatch();
 
@@ -60,11 +63,39 @@ const Login = (props) => {
 		}
 		const enteredEmail = emailInputRef.current.value;
 		const enteredPassword = passwordInputRef.current.value;
-		const destination =
-			"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBV_HDSl0eps1HRi2_oXPPseJrYlUvBzys";
-		dispatch(
-			submitActions.submit({ enteredEmail, enteredPassword, destination })
-		);
+		fetch(
+			"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBV_HDSl0eps1HRi2_oXPPseJrYlUvBzys",
+			{
+				method: "POST",
+				body: JSON.stringify({
+					email: enteredEmail,
+					password: enteredPassword,
+					returnSecureToken: true,
+				}),
+				headers: {
+					"Content-Type": "application/json",
+				},
+			}
+		)
+			.then((res) => {
+				if (res.ok) {
+					return res.json();
+				} else {
+					return res.json().then((data) => {
+						let errorMessage = "Authentication failed!";
+						if (data && data.error && data.error.message) {
+							errorMessage = data.error.message;
+						}
+						throw new Error(errorMessage);
+					});
+				}
+			})
+			.then((data) => {
+				dispatch(authActions.login({ token: data.idToken }));
+			})
+			.catch((err) => {
+				alert(err.message);
+			});
 	};
 
 	const emailClasses = emailHasError ? "login-input invalid" : "login-input";
@@ -82,9 +113,11 @@ const Login = (props) => {
 							<p>Connect with friends and the world around you on GoodBook.</p>
 						</div>
 					</MediaQuery>
+
 					<MediaQuery query="(max-width:767px)">
 						<div className={classes["login-sp-title"]}>goodbook</div>
 					</MediaQuery>
+
 					<div className={classes["login-right"]}>
 						<Form onSubmit={submitLoginHandler}>
 							<Input
@@ -125,12 +158,15 @@ const Login = (props) => {
 							)}
 							<Button disabled={!formIsValid}>Log In</Button>
 						</Form>
+
 						<div className={classes.remember}>
 							<a href="/">Forgot Password?</a>
 						</div>
+
 						<Button signup={true} onClick={props.onShowSignup}>
 							Create New Account
 						</Button>
+
 						<Button onClick={autoLoginHandler}>Auto Login</Button>
 					</div>
 				</div>

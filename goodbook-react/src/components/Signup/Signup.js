@@ -19,7 +19,6 @@ import {
 	setMonth,
 	setDay,
 } from "../../util/Consts";
-import { submitActions } from "../../store/submit-slice";
 
 const Signup = (props) => {
 	const history = useHistory();
@@ -44,11 +43,39 @@ const Signup = (props) => {
 		event.preventDefault();
 		const enteredEmail = emailInputRef.current.value;
 		const enteredPassword = passwordInputRef.current.value;
-		const destination =
-			"https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBV_HDSl0eps1HRi2_oXPPseJrYlUvBzys";
-		dispatch(
-			submitActions.submit({ enteredEmail, enteredPassword, destination })
-		);
+		fetch(
+			"https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBV_HDSl0eps1HRi2_oXPPseJrYlUvBzys",
+			{
+				method: "POST",
+				body: JSON.stringify({
+					email: enteredEmail,
+					password: enteredPassword,
+					returnSecureToken: true,
+				}),
+				headers: {
+					"Content-Type": "application/json",
+				},
+			}
+		)
+			.then((res) => {
+				if (res.ok) {
+					return res.json();
+				} else {
+					return res.json().then((data) => {
+						let errorMessage = "Authentication failed!";
+						if (data && data.error && data.error.message) {
+							errorMessage = data.error.message;
+						}
+						throw new Error(errorMessage);
+					});
+				}
+			})
+			.then((data) => {
+				console.log(data.idToken);
+			})
+			.catch((err) => {
+				alert(err.message);
+			});
 	};
 
 	return (

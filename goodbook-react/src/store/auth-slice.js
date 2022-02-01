@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import submitSlice from "./submit-slice";
 
 const authSlice = createSlice({
 	name: "auth",
@@ -8,10 +7,10 @@ const authSlice = createSlice({
 		isLoggedIn: false,
 	},
 	reducers: {
-		loginHandler(state, action) {
+		login(state, action) {
 			state.token = action.payload.token;
 		},
-		logoutHandler(state, action) {
+		logout(state, action) {
 			state.token = null;
 		},
 	},
@@ -19,4 +18,4 @@ const authSlice = createSlice({
 
 export const authActions = authSlice.actions;
 
-export default submitSlice;
+export default authSlice;
