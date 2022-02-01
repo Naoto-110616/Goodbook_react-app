@@ -5,6 +5,7 @@ import customGenderSlice from "./customGender-slice";
 import signupSlice from "./signup-slice";
 import submitSlice from "./submit-slice";
 import authSlice from "./auth-slice";
+import subMenuSlice from "./subMenu-slice";
 
 const store = configureStore({
 	reducer: {
@@ -13,6 +14,7 @@ const store = configureStore({
 		signup: signupSlice.reducer,
 		submit: submitSlice.reducer,
 		auth: authSlice.reducer,
+		subMenu: subMenuSlice.reducer,
 	},
 });
 

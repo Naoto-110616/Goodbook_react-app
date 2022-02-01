@@ -11,6 +11,7 @@ import Select from "../UI/Select/Select";
 import CustomGender from "./CustomGender/CustomGender";
 import Form from "../UI/Form/Form";
 import { customGenderActions } from "../../store/customGender-slice";
+import { authActions } from "../../store/auth-slice";
 import {
 	today,
 	birthYear,
@@ -32,9 +33,6 @@ const Signup = (props) => {
 	const customGenderCloseHandler = () => {
 		dispatch(customGenderActions.close());
 	};
-
-	const isLogin = useSelector((state) => state.signup.signupIsVisible);
-	console.log(isLogin);
 
 	const emailInputRef = useRef();
 	const passwordInputRef = useRef();
@@ -71,7 +69,8 @@ const Signup = (props) => {
 				}
 			})
 			.then((data) => {
-				console.log(data.idToken);
+				dispatch(authActions.login({ token: data.idToken }));
+				history.push("/home");
 			})
 			.catch((err) => {
 				alert(err.message);

@@ -8,7 +8,7 @@ import Form from "../UI/Form/Form";
 import useInput from "../../hooks/use-input";
 
 import MediaQuery from "react-responsive";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { submitActions } from "../../store/submit-slice";
 import { authActions } from "../../store/auth-slice";
 
@@ -16,8 +16,6 @@ const isEmail = (value) => value.includes("@");
 const isPassword = (value) => value.length >= 6;
 
 const Login = (props) => {
-	const token = useSelector((state) => state.auth.token);
-	console.log(token);
 	const history = useHistory();
 	const dispatch = useDispatch();
 
@@ -92,6 +90,7 @@ const Login = (props) => {
 			})
 			.then((data) => {
 				dispatch(authActions.login({ token: data.idToken }));
+				history.push("/home");
 			})
 			.catch((err) => {
 				alert(err.message);

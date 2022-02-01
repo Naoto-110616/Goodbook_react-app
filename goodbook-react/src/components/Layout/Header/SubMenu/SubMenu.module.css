@@ -1,0 +1,52 @@
+.subMenu {
+	position: fixed;
+	background-color: #1c1e1f;
+	right: 0;
+	top: 60px;
+	border-radius: 5px;
+	padding: 20px;
+	box-sizing: border-box;
+	font-size: 16px;
+	width: 25%;
+	text-align: left;
+}
+.subMenu p {
+	margin: 0;
+}
+.subMenu svg {
+	font-size: 1.8rem;
+	margin: 0 15px 0 0;
+}
+.subMenu ul {
+	padding: 0;
+	margin: 0;
+}
+.subMenu ul li {
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	cursor: pointer;
+	margin: 10px 0;
+}
+.subMenu ul li:hover {
+	background-color: #4b5053;
+	border-radius: 5px;
+}
+.profile {
+	display: flex;
+	align-items: center;
+	margin: 0 0 10px 0;
+}
+.profile svg {
+	font-size: 4rem;
+}
+.feedback {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	margin: 0 0 10px 0;
+}
+.arrow {
+	right: 0;
+	position: absolute;
+}
