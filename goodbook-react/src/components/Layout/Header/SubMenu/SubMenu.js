@@ -11,11 +11,13 @@ import { BsFillGearFill } from "react-icons/bs";
 
 import { useDispatch } from "react-redux";
 import { authActions } from "../../../../store/auth-slice";
+import { subMenuActions } from "../../../../store/subMenu-slice";
 
 const SubMenu = () => {
 	const dispatch = useDispatch();
 	const logoutHandler = () => {
 		dispatch(authActions.logout());
+		dispatch(subMenuActions.close());
 	};
 	return (
 		<>
