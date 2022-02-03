@@ -9,6 +9,8 @@ import {
 } from "react-icons/md";
 import { BsFillGearFill } from "react-icons/bs";
 
+import { Link } from "react-router-dom";
+
 import { useDispatch } from "react-redux";
 import { authActions } from "../../../../store/auth-slice";
 import { subMenuActions } from "../../../../store/subMenu-slice";
@@ -17,6 +19,9 @@ const SubMenu = () => {
 	const dispatch = useDispatch();
 	const logoutHandler = () => {
 		dispatch(authActions.logout());
+		dispatch(subMenuActions.close());
+	};
+	const subMenuCloseHandler = () => {
 		dispatch(subMenuActions.close());
 	};
 	return (
@@ -38,11 +43,13 @@ const SubMenu = () => {
 				</div>
 				<div>
 					<ul>
-						<li>
-							<BsFillGearFill />
-							<p>Setting & privacy</p>
-							<MdArrowForwardIos className={classes.arrow} />
-						</li>
+						<Link to="/changePassword" onClick={subMenuCloseHandler}>
+							<li>
+								<BsFillGearFill />
+								<p>Change password</p>
+								<MdArrowForwardIos className={classes.arrow} />
+							</li>
+						</Link>
 						<li>
 							<MdHelp />
 							<p>Help & Support</p>

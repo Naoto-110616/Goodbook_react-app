@@ -9,7 +9,6 @@ import useInput from "../../hooks/use-input";
 
 import MediaQuery from "react-responsive";
 import { useDispatch } from "react-redux";
-import { submitActions } from "../../store/submit-slice";
 import { authActions } from "../../store/auth-slice";
 
 const isEmail = (value) => value.includes("@");
@@ -64,7 +63,7 @@ const Login = (props) => {
 		hasError: emailHasError,
 		valueChangeHandler: emailChangeHandler,
 		inputBlurHandler: emailBlurHandler,
-		reset: resetEmail,
+		// reset: resetEmail,
 	} = useInput(isEmail);
 
 	const {
@@ -73,7 +72,7 @@ const Login = (props) => {
 		hasError: passwordHasError,
 		valueChangeHandler: passwordChangeHandler,
 		inputBlurHandler: passwordBlurHandler,
-		reset: resetPassword,
+		// reset: resetPassword,
 	} = useInput(isPassword);
 
 	let formIsValid = false;
