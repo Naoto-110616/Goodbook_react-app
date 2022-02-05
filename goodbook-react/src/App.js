@@ -14,14 +14,17 @@ function App() {
 		<div className="App">
 			<Switch>
 				<Route path="/" exact>
-					<Redirect to="/auth" />
-				</Route>
-				<Route path="/auth">
-					<Auth />
+					{!token && <Redirect to="/auth" />}
+					{token && <Redirect to="/home" />}
 				</Route>
 				{token && (
 					<Route path="/home">
 						<Home />
+					</Route>
+				)}
+				{!token && (
+					<Route path="/auth">
+						<Auth />
 					</Route>
 				)}
 				{token && (
@@ -30,8 +33,8 @@ function App() {
 					</Route>
 				)}
 				<Route path="*">
-					{!token && <Redirect to="/auth" />}
 					{token && <NotFound />}
+					{!token && <Redirect to="/auth" />}
 				</Route>
 			</Switch>
 		</div>
