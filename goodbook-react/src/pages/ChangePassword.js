@@ -18,30 +18,32 @@ const ChangePassword = () => {
 	const submitHandler = (event) => {
 		event.preventDefault();
 		const enteredNewPassword = newPasswordInputRef.current.value;
-		fetch(
-			"https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyBV_HDSl0eps1HRi2_oXPPseJrYlUvBzys",
-			{
-				method: "POST",
-				body: JSON.stringify({
-					idToken: token,
-					password: enteredNewPassword,
-					returnSecureToken: false,
-				}),
-				headers: {
-					"Content-Type": "application/json",
-				},
-			}
-		).then((res) => {
-			// assumption: Always succeeds!
-			history.replace("/home");
-		});
+		if (enteredNewPassword) {
+			fetch(
+				"https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyBV_HDSl0eps1HRi2_oXPPseJrYlUvBzys",
+				{
+					method: "POST",
+					body: JSON.stringify({
+						idToken: token,
+						password: enteredNewPassword,
+						returnSecureToken: false,
+					}),
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			).then((res) => {
+				// assumption: Always succeeds!
+				history.replace("/home");
+			});
+		}
 	};
 
 	return (
 		<Layouts>
 			<Form onSubmit={submitHandler}>
 				<div className={classes.changePassword}>
-					<h2>Change Password</h2>
+					<label htmlFor="new-password">New Password</label>
 					<Input
 						input={{
 							ref: newPasswordInputRef,
