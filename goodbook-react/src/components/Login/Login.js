@@ -19,8 +19,8 @@ const Login = (props) => {
 	const dispatch = useDispatch();
 
 	const autoLoginHandler = () => {
-		const enteredEmail = "ttt@ttt.com";
-		const enteredPassword = "ttttttt";
+		const enteredEmail = "ppp@ppp.com";
+		const enteredPassword = "ppppppp";
 		fetch(
 			"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBV_HDSl0eps1HRi2_oXPPseJrYlUvBzys",
 			{
